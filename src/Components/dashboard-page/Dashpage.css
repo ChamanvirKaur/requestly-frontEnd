@@ -1,0 +1,74 @@
+.dashboard-maincontainer{
+    display: flex;
+    scroll-behavior: smooth;
+    position: relative;
+}   
+
+.dashboard-sidenavbar{
+    width: 20%;
+    height: 1000vh;
+    background-color: #080808;
+    box-shadow:4px 6px 9px 0px;
+    position: absolute;
+    
+}
+
+.dashboard-sidenavbar-list{
+    list-style-type: none;
+    color: crimson;
+    font-size: 25px;
+    
+    padding: 0;
+    
+}
+
+.dashboard-sidenavbar-list li{
+    margin-top: 20px;
+    text-align: start;
+    padding-left: 20px;
+    margin-right: 50px;
+    font-weight: 500;
+    cursor:pointer;
+    position:relative;
+   
+}
+
+.links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+
+}
+
+.links.active-link::after{
+    width: 50%;
+}
+
+.dashboard-sidenavbar-list li:hover{
+  background-color: black;
+  color: green;
+   
+}
+
+.dashboard-information{
+    width: 80%;
+    background-color: #080808;
+
+    margin-left: 20%;
+    padding: 100px;
+   
+}
+
+
+.dashboard-contents{
+    display: none;
+}
+
+.dashboard-contents.active-content{
+    display: block;
+}

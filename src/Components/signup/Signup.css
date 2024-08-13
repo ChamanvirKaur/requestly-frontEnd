@@ -1,0 +1,53 @@
+.signup-mainContent{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.signup-otherContent{
+  width: 50%;
+  padding: 50px;
+  text-align: center;
+  text-align: center;
+}
+.signup-otherContent i{
+  font-size: 250px;
+  margin-top: 20px;
+  background: linear-gradient(145deg, #2a2a2a, #ff004f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: font-size 0.3s ease;
+
+}
+.center-stepper{
+  width: 50%;
+ 
+ 
+}
+
+
+/* ----------------------------CSS for small screen ---------------------------- */
+
+@media only screen and (max-width : 768px){
+  .signup-mainContent{
+    display: block;
+  }
+
+  .signup-otherContent {
+    width: 100%;
+  }
+
+  .signup-otherContent i {
+    font-size: 200px
+  }
+
+  .center-stepper{
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,50 @@
+.dashboard-profilecontainer{
+    width: 80%;
+    background-color: #080808;
+    margin: auto;
+
+    padding: 20px;
+    margin-bottom: 20px;
+   
+}
+
+
+.dashboard-profileinfo h1{
+    text-align: center;
+    color: #ff004f;
+}   
+
+.dashboard-profileinfo h3{
+    color: #ff004f;
+    margin: 10px;
+}
+
+.dashboard-profileinfo input{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.submit-button{
+    display: block;
+    margin: auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    background: #262626;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.5s;
+}
+
+.submit-button:hover{
+    background: #fff;
+    color: #ff004f;
+  }

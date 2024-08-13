@@ -1,0 +1,66 @@
+/* Container Styling */
+.requestForm {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    max-width: 400px;
+    margin: 40px auto;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Heading Styling */
+.requestForm h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #f1f1f1;
+    letter-spacing: 1.2px;
+}
+
+/* Select Dropdown Styling */
+.requestFormInput {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background-color: #2e2e2e;
+    color: #ffffff;
+    font-size: 18px;
+    transition: all 0.4s ease;
+    outline: none;
+}
+
+/* Dropdown Hover Effect */
+.requestFormInput:hover {
+    border-color: #888;
+}
+
+/* Dropdown Focus Styling */
+.requestFormInput:focus {
+    border-color: #24700d;
+    box-shadow: 0 0 8px #24700d;
+    background-color: #333;
+}
+
+/* Option Styling */
+.requestFormInput option {
+    background-color: #2e2e2e;
+    color: #ffffff;
+}
+
+/* Enhanced Focus Ring for Accessibility */
+.requestFormInput:focus-visible {
+    outline: 2px solid #24700d;
+    outline-offset: 4px;
+}
+
+.errorPopup{
+    color: #ff004f;
+    margin-top: 20px;
+}
+
+.requestdate{
+    margin-top: 20px;
+}

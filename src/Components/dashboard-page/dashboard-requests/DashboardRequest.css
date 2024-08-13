@@ -1,0 +1,24 @@
+.request-tableContent{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.request-tableContent th{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: green;
+    color: yellow;
+    font-size: larger;
+}
+
+.request-tableContent td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: gainsboro;
+    color: black;
+    font-size: larger;
+}
+
+#request-tableContent tr:nth-child(even){background-color: #f2f2f2;}

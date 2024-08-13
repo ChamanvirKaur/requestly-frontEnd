@@ -1,0 +1,131 @@
+.headerBox{
+  width: 100%;
+  display: flex;
+  padding: 50px;
+
+}
+
+.headerBoxImage{
+  width: 50%;
+  text-align: center;
+}
+
+.landingpageimg{
+  width: 500px;
+  height: 500px;
+  margin-top: 10px;
+}
+.header-text{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 10%;
+  }
+  
+  .info-text{
+    font-size: 30px;
+    color: white;
+  }
+  
+  .info-text span{
+    font-size: 35px;
+    color: #ff004f;
+  }
+  .request-types-text h3{
+    color: #ababab;
+  
+  }
+  .request-types-text span{
+    color: #ff004f;
+    
+  }
+  
+  .auth-buttons{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .explore-que{
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .auth-buttons .sign-up-button , .login-button{
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    background: #ff004f;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.5s;
+  }
+  .sign-up-button:hover , .login-button:hover{
+    background: #fff;
+    color: #ff004f;
+  }
+
+  /* services */
+
+#services{
+  padding: 30px 0;
+
+}
+
+.services-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.services-list div{
+  background: #26262664;
+  color: #ababab;
+  padding: 40px;
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 10px;
+  transition:background 0.5s, transform 0.5s;
+
+}
+
+.services-list div i{
+  font-size: 50px;
+  margin-bottom:30px ;
+}
+
+.services-list div h2{
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.services-list div a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.services-list div:hover{
+
+  background: #ff004f;
+  transform: translateY(-10px);
+}
+
+@media only screen and (max-width : 768px){
+  .headerBox{
+    display: block;
+  }
+
+  .headerBox .headerBoxImage{
+    width: 100%;
+  }
+}
