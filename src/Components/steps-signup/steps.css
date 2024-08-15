@@ -151,6 +151,11 @@
 .fullnamebox{
     width: 100%;
     display: flex;
+    text-align: start;
+}
+
+.emailbox{
+    text-align: start;
 }
 
 .firstName , .lastName{

@@ -6,6 +6,8 @@ function SecondStep() {
     const { setcurrentStep, userData, setuserData, handleChnage } = useContext(multiStepContext);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -13,6 +15,28 @@ function SecondStep() {
 
     const toggleConfirmPasswordVisibility = () => {
         setShowConfirmPassword(!showConfirmPassword);
+    };
+
+    const checkAuth = () => {
+        let hasError = false;
+
+        if (userData.password.trim() === '') {
+            setPasswordError(true);
+            hasError = true;
+        } else {
+            setPasswordError(false);
+        }
+
+        if (userData.ConfirmPassword.trim() === '' || userData.ConfirmPassword !== userData.password) {
+            setConfirmPasswordError(true);
+            hasError = true;
+        } else {
+            setConfirmPasswordError(false);
+        }
+
+        if (!hasError) {
+            setcurrentStep(3);
+        }
     };
 
     return (
@@ -31,8 +55,9 @@ function SecondStep() {
                             type={showPassword ? "text" : "password"}
                         />
                         <span className="eye-icon" onClick={togglePasswordVisibility}>
-                            {showPassword ? <i class="fa-solid fa-eye"></i> : <i class="fa-solid fa-eye-slash"></i>}
+                            {showPassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </span>
+                        {passwordError && <span style={{ color: 'red' }}>Enter a password</span>}
                     </div>
                     <div className="password-container">
                         <input
@@ -43,15 +68,16 @@ function SecondStep() {
                             type={showConfirmPassword ? "text" : "password"}
                         />
                         <span className="eye-icon" onClick={toggleConfirmPasswordVisibility}>
-                            {showConfirmPassword ? <i class="fa-solid fa-eye"></i>: <i class="fa-solid fa-eye-slash"></i>}
+                            {showConfirmPassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </span>
+                        {confirmPasswordError && <span style={{ color: 'red' }}>Passwords do not match</span>}
                     </div>
                 </div>
                 <div className='next-back-buttons'>
                     <button className="submit-button" onClick={() => setcurrentStep(1)}>
                         Back
                     </button>
-                    <button className="submit-button" onClick={() => { setcurrentStep(3) }}>
+                    <button className="submit-button" onClick={checkAuth}>
                         Next
                     </button>
                 </div>
