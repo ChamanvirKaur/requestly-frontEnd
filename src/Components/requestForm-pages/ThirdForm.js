@@ -40,7 +40,7 @@ function ThirdForm() {
           <input type="date" className='requestFormInput' value={today} readOnly />
         </div>
         <div className='requestdate'>
-          <h2>Expected Date</h2>
+          <h2>Due Date</h2>
           <input 
             type="date" 
             className='requestFormInput' 
