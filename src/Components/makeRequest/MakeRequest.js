@@ -1,59 +1,75 @@
-import React, { useState } from 'react'
-import FirstForm from '../requestForm-pages/FirstForm'
-import SecondForm from '../requestForm-pages/SecondForm'
-import ThirdForm from '../requestForm-pages/ThirdForm'
-import FourthForm from '../requestForm-pages/FourthForm'
-import { useNavigate } from 'react-router-dom'
-import {Stepper, StepLabel, Step, MobileStepper} from '@mui/material'
-import './MakeRequest.css'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Stepper, StepLabel, Step } from '@mui/material';
+import FirstForm from '../requestForm-pages/FirstForm';
+import SecondForm from '../requestForm-pages/SecondForm';
+import ThirdForm from '../requestForm-pages/ThirdForm';
+import FourthForm from '../requestForm-pages/FourthForm';
+import FifthForm from '../requestForm-pages/FifthForm';
+import './MakeRequest.css';
+
 function MakeRequest() {
-    const navigate=useNavigate();
-    const[page,setpage]=useState(0);
-    const FormTitles=["Sign Up","personal Info", "Other","Price"];
-    const FormDisplay = () =>{
-       if(page === 0){
-        return <FirstForm/>
-       }
+    const navigate = useNavigate();
+    const [page, setPage] = useState(0);
+    const FormTitles = ["Sign Up", "Personal Info", "Other", "Price", "Branch"];
 
-       else if(page === 1){
-        return <SecondForm/>
-       }
-       else if(page===2){
-        return <ThirdForm/>
-       }
-       else{
-        return <FourthForm/>
-       }
-    }
-
-    const movetodash =()=>{
-
-        if(page === FormTitles.length - 1){
-            navigate("/dashboard")
+    const FormDisplay = () => {
+        switch (page) {
+            case 0:
+                return <FirstForm />;
+            case 1:
+                return <SecondForm />;
+            case 2:
+                return <ThirdForm />;
+            case 3:
+                return <FourthForm />;
+            case 4:
+                    return <FifthForm />;
+            default:
+                return null;
         }
-       setpage((currpage)=>currpage + 1)
-       
-    }
-  return (
-    <div className='form'>
-        <div className='progressbar'>
-            <div style={{ width: page === 0 ? "33%" : page === 1 ? "66%" : "100%" , backgroundColor:"green", height:"10px" , transition:"1s",borderRadius:"20px"}}></div>
+    };
+
+    const moveToDash = () => {
+        if (page === FormTitles.length - 1) {
+            navigate("/dashboard");
+        } else {
+            setPage((currPage) => currPage + 1);
+        }
+    };
+
+    return (
+        <div className="form">
+            <div className="progressbar">
+                <div 
+                    style={{
+                        width: `${(page + 1) * (100 / FormTitles.length)}%`,
+                        backgroundColor: "green",
+                        height: "10px",
+                        transition: "width 1s ease",
+                        borderRadius: "20px"
+                    }}
+                ></div>
+            </div>
+            <div className="form-container">
+                <h1>{FormTitles[page]}</h1>
+            </div>
+            <div className="request-form-body">
+                {FormDisplay()}
+            </div>
+            <div className="request-button-container">
+                <button 
+                    disabled={page === 0} 
+                    onClick={() => setPage((currPage) => currPage - 1)}
+                > 
+                    Previous 
+                </button>
+                <button onClick={moveToDash}> 
+                    {page === FormTitles.length - 1 ? "Submit" : "Next"} 
+                </button>
+            </div>
         </div>
-        {/* <div className='form-container'>
-            <h1>{FormTitles[page]}</h1>
-        </div> */}
-        <div className='request-form-body'>
-            {FormDisplay()}
-        </div>
-        <div className='request-button-container'>
-            <button disabled={page==0} onClick={()=> {setpage((currpage)=>currpage - 1)}}> Previous </button>
-            <button onClick={movetodash}> {page === FormTitles.length - 1 ? "Submit": "Next"} </button>
-        </div>
-     
-    
-    
-    </div>
-  )
+    );
 }
 
-export default MakeRequest
+export default MakeRequest;
