@@ -5,7 +5,7 @@ function FifthForm() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const fetchBranches = () => {
-    fetch('http://127.0.0.1:8000/api/branch/')
+    fetch('https://requestly.pythonanywhere.com/api/branch/')
       .then(response => response.json())
       .then(data => {
         console.log(document.visibilityState)
