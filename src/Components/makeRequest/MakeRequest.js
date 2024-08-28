@@ -12,6 +12,7 @@ function MakeRequest() {
     const navigate = useNavigate();
     const [page, setPage] = useState(0);
     const FormTitles = ["", "", "", "", ""];
+    const [createdFor,setcreatedFor]=useState(localStorage.getItem('email'))
     const { userData, selectedCategory, setSelectedCategory, categoryType, setcategoryType, duedate, setdueDate, budget, setBudget, branch, setBranch } = useContext(multiStepContext);
 
     const FormDisplay = () => {
@@ -42,13 +43,13 @@ function MakeRequest() {
                     credentials: 'include',
                     body: JSON.stringify({
                         Budget: budget,
-                        created_by: localStorage.getItem('email'),
+                        created_by:createdFor,
                         description: "NO Description",
                         estimated_completion: duedate,
                     }),
                 
                 });
-
+                console.log(createdFor);
                 console.log(response)
                 // Check if the response is successful
                 if (response.ok) {
