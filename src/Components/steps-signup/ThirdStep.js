@@ -1,68 +1,50 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './steps.css';
 import { useNavigate } from 'react-router-dom';
 import { multiStepContext } from '../../StepContext';
 
 function ThirdStep() {
     const navigate = useNavigate();
-    const { setcurrentStep, userData, setuserData, handleChnage, finalData, setfinalData } = useContext(multiStepContext);
+    const { setcurrentStep, userData, setuserData, handleChnage } = useContext(multiStepContext);
     const [showPopup, setShowPopup] = useState(false);
-
-    const testData = {
-        username: "tom@tulong.com",
-        first_name: "eet",
-        last_name: "UIO",
-        phone: "89099800909",
-        email: "tom@tulong.com",
-        password: "V8-rtyforekfp",
-        address: "ON",
-        city: "OP",
-        province: "Yuifd"
-    };
 
     const closePopup = () => {
         setShowPopup(false);
-        userData({
-          email : "",
-          password :"",
-       
-        })
-      };
-    
+        setuserData({
+            ...userData, // retain existing fields
+            email: "",
+            password: "",
+        });
+    };
 
     const submitData = async () => {
-          console.log(testData)
         try {
-            const response = await fetch('https://requestly.pythonanywhere.com/api/users/register/'
-                , {
-                  method: 'POST',
-                  headers: {
+            const response = await fetch('http://127.0.0.1:8000/api/users/register/', {
+                method: 'POST',
+                headers: {
                     'Content-Type': 'application/json',
-                    // Add this if sending credentials like cookies
-                   
-                  },
-                  credentials: 'include', // Add this line if you're sending credentials
-                  body: JSON.stringify({
-                    username:userData.email.split('@')[0],
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    username: userData.email,
                     email: userData.email,
                     password: userData.password,
-                    first_name:userData.first_name,
-                    last_name:userData.last_name
-                  }),
-                })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .then("Registrat")
-                .catch(error => console.error('Error:', error));
-                console.log(response)
+                    first_name: userData.first_name,
+                    last_name: userData.last_name,
+                }),
+            });
 
-            if (response.status==201) {
-                console.log('Data submitted successfully:', await response.json());
+            const data = await response.json();
+            console.log(data);
+            
+
+            // If successful, show popup and navigate
+            if (response.ok) {
                 setShowPopup(true);
-                setcurrentStep(1);
-                navigate("/makeRequest");
-            } else {
-                console.error('Error submitting data:');
+                // Optionally, navigate to another page after showing the popup
+                setTimeout(() => {
+                    navigate("/login");
+                }, 2000); // navigate after 2 seconds
             }
         } catch (error) {
             console.error('Error submitting data:', error);
@@ -89,15 +71,15 @@ function ThirdStep() {
                     </button>
                 </div>
             </div>
-       
+
             {showPopup && 
-        <div className="popup">
-          <div className="popup-content">
-            <h2>login Successful</h2>
-            <button className='close-button' onClick={closePopup}>Close</button>
-          </div>
-        </div>
-      }
+                <div className="popup">
+                    <div className="popup-content">
+                        <h2>Registration Successful</h2>
+                        <button className='close-button' onClick={closePopup}>Close</button>
+                    </div>
+                </div>
+            }
         </div>
     );
 }

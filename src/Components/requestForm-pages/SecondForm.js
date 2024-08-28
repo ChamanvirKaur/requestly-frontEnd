@@ -2,7 +2,8 @@ import React,{  useContext } from 'react'
 import { multiStepContext } from '../../StepContext';
 
 function SecondForm() {
-    const{selectedCategory,handleCategoryChange} = useContext(multiStepContext);
+    const{selectedCategory,handleCategoryChange,categoryType,setcategoryType, handlecategorytypeChange} = useContext(multiStepContext);
+
 
   return (
     <div className='requestForm'>
@@ -14,7 +15,8 @@ function SecondForm() {
         {selectedCategory=='General' && <select 
           className='requestFormInput' 
           id="requestTypes" 
-         
+          value={categoryType} 
+          onChange={handlecategorytypeChange}
         >
             <option value="General">General</option>
         </select>}
@@ -24,6 +26,8 @@ function SecondForm() {
         {selectedCategory=='Media Buy' && <select 
           className='requestFormInput' 
           id="requestTypes" 
+          value={categoryType} 
+          onChange={handlecategorytypeChange}
          
         >
             <option value="Print AD">Print AD</option>
@@ -39,6 +43,8 @@ function SecondForm() {
         {selectedCategory=='Content & Translation' && <select 
           className='requestFormInput' 
           id="requestTypes" 
+          value={categoryType} 
+          onChange={handlecategorytypeChange}
          
         >
             <option value="English">English</option>
@@ -52,7 +58,8 @@ function SecondForm() {
         {selectedCategory=='Graphic Design' && <select 
           className='requestFormInput' 
           id="requestTypes" 
-         
+          value={categoryType} 
+          onChange={handlecategorytypeChange}
         >
             <option value="Print Ad">Print Ad</option>
             <option value="Social Media Ad">Social Media Ad</option>
@@ -64,7 +71,8 @@ function SecondForm() {
         {selectedCategory=='Print & Production' && <select 
           className='requestFormInput' 
           id="requestTypes" 
-         
+          value={categoryType} 
+          onChange={handlecategorytypeChange}
         >
             <option value="Poster">Poster</option>
             <option value="A-Frame">A-Frame</option>
@@ -79,7 +87,8 @@ function SecondForm() {
         {selectedCategory=='Event Marketing' && <select 
           className='requestFormInput' 
           id="requestTypes" 
-         
+          value={categoryType} 
+          onChange={handlecategorytypeChange}
         >
             <option value="Poster">Event materials</option>
             <option value="A-Frame">Sponsorship request</option>

@@ -2,8 +2,15 @@ import React from 'react';
 import DashboardProfile from './dashboard-profile/DashboardProfile';
 import './Dashpage.css';
 import DashboardRequest from './dashboard-requests/DashboardRequest';
+import { useNavigate } from 'react-router-dom';
 
 function Dashpage() {
+    const navigate = useNavigate();
+
+    const callRequest =()=>{
+        navigate('/makeRequest')
+    }
+
     const opentab = (tabname) => (event) => {
         const links = document.querySelectorAll('.links');
         const dashboardContents = document.querySelectorAll('.dashboard-contents');
@@ -31,7 +38,11 @@ function Dashpage() {
                 </ul>
             </div>
             <div className='dashboard-information'>
-               
+                <div className='new-req-button'>
+                    <button onClick={callRequest}>
+                        Make a request
+                    </button>
+                </div>
                 <div className='dashboard-contents active-content' id='request'>
                     <DashboardRequest />
                 </div>

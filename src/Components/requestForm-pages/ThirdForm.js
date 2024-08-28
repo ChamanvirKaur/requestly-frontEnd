@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
+import { multiStepContext } from '../../StepContext';
 
 function ThirdForm() {
+
+  const{ duedate,setdueDate} = useContext(multiStepContext);
+
   // Get today's date in YYYY-MM-DD format
   const today = new Date().toISOString().split('T')[0];
   
@@ -29,6 +33,7 @@ function ThirdForm() {
       setError('Expected date must be at least 3 days from today.');
     } else {
       setError('');
+      setdueDate(e.target.value)
     }
   };
 
@@ -44,7 +49,7 @@ function ThirdForm() {
           <input 
             type="date" 
             className='requestFormInput' 
-            value={expectedDate} 
+            value={duedate} 
             onChange={handleExpectedDateChange} 
           />
         </div>
