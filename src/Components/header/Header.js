@@ -12,11 +12,34 @@ function Header() {
     }
   }, []);
 
-  const handleLogout = () => {
-    // Remove the token from localStorage
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    window.location.href = '/login'; // Redirect to the login page
+  const handleLogout = async () => {
+    const token = localStorage.getItem('token');
+    console.log("token is:",token)
+    if (token) {
+      try {
+        // Send a POST request to the logout API
+        const response = await fetch('http://127.0.0.1:8000/api/users/logout/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept':'*/*',
+            'Authorization': `Token ${token}`
+          }
+        });
+
+        if (response.ok) {
+          // Logout successful, remove the token and redirect
+          localStorage.removeItem('token');
+          setIsLoggedIn(false);
+          window.location.href = '/login'; // Redirect to the login page
+        } else {
+          // Handle the error, e.g., show an error message
+          console.error('Logout failed');
+        }
+      } catch (error) {
+        console.error('Error during logout:', error);
+      }
+    }
   };
 
   return (

@@ -3,10 +3,18 @@ import './DashboardRequest.css';
 
 function DashboardRequest() {
   const [requests, setRequests] = useState([]);
+  
+  const token = localStorage.getItem('token'); // Adjust this according to your token storage mechanism
 
   useEffect(() => {
-    // Fetch data from the API
-    fetch('http://127.0.0.1:8000/api/users/list/')
+    fetch('http://127.0.0.1:8000/api/users/my-ticket/', {
+      method: 'GET',
+      headers: {
+        'Accept': '*/*',
+        'Authorization': `Token ${token}`, 
+        'Content-Type': 'application/json',
+      },
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -15,49 +23,46 @@ function DashboardRequest() {
       })
       .then(data => {
         console.log('Fetched Requests:', data);
-        setRequests(data); // Assuming the data returned is an array of requests
+        setRequests(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [token]);
 
   return (
     <div className='dashboard-request'>
       <h1>My Requests</h1>
-      <table className='request-tableContent'>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>username</th>
-            <th>first_name</th>
-            <th>last_name</th>
-            <th>province</th>
-
-
-
-          </tr>
-        </thead>
-        <tbody>
-          {requests.length > 0 ? (
-            requests.map((request, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{request.username}</td> {/* Adjust the key as per your data structure */}
-                <td>{request.first_name}</td>
-                <td>{request.last_name}</td>
-                <td>{request.province}</td> {/* Adjust the key as per your data structure */}
-                 {/* Adjust the key as per your data structure */}
-                 {/* Adjust the key as per your data structure */}
-              </tr>
-            ))
-          ) : (
+      {requests.length > 0 ? (
+        <table className="request-table">
+          <thead>
             <tr>
-              <td colSpan="3">No requests found</td>
+              {/* <th>ID</th> */}
+              <th>Ticket Category</th>
+              <th>Description</th>
+              <th>Requested Branch</th>
+              <th>Created On</th>
+              <th>Ticket State</th>
+              <th>Comments</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {requests.map(request => (
+              <tr key={request.id}>
+                {/* <td>{request.id}</td> */}
+                <td>{request.ticket_category}</td>
+                <td>{request.description}</td>
+                <td>{request.requested_branch}</td>
+                <td>{new Date(request.created_on).toLocaleDateString()}</td>
+                <td><b>{request.ticket_state}</b></td>
+                <td>{request.comments || 'No comments'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No requests found</p>
+      )}
     </div>
   );
 }

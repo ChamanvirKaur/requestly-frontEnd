@@ -34,6 +34,7 @@ function ThirdForm() {
     } else {
       setError('');
       setdueDate(e.target.value)
+      console.log(duedate)
     }
   };
 

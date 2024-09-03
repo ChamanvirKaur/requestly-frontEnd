@@ -1,37 +1,140 @@
-import React,{useContext} from 'react';
-import './DashboardProfile.css'
+import React, { useContext, useEffect, useState } from 'react';
+import './DashboardProfile.css';
 import { multiStepContext } from '../../../StepContext';
 
-
 function DashboardProfile() {
-    const{userData,setuserData} = useContext(multiStepContext);
-    console.log(userData.email)
+    const { userData, setuserData } = useContext(multiStepContext);
+    const [isEditing, setIsEditing] = useState(false);
+    const [formData, setFormData] = useState({});
 
-  return (
-    <div className='dashboard-profilecontainer'>
-        <h1>Profile</h1>
-          <div className="dashboard-profileinfo">
-                
-                    <input value={userData.email}  name='email'  placeholder='Email' type="email" />
-                   
-                    {/* <input   name='password' placeholder='Password' type="password" /> */}
-                   
-                    <input value={userData.firstname}   name='firstname' placeholder='First-Name' type="text" />
-                    <input value={userData.lastname}   name='lastname' placeholder='Last-Name' type="text" />
+    useEffect(() => {
+        // Fetch user data from the API
+        const fetchUserData = async () => {
+            const token = localStorage.getItem('token');
 
-                   
-                    <input value={userData.phone}  name='phone' placeholder='Phone' type="text" />
-                   
-                    <input  name='address' placeholder='Address' type="text" />
-                    
-                    <input  name='city' placeholder='City' type="text" />
-                    
-                    <input   name='province' placeholder='Province' type="text" />
-                    
-                </div>
-              
-    </div>
-  )
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/users/profile/', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Token ${token}`
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setuserData(data);
+                    setFormData(data); // Initialize formData with the fetched data
+                    localStorage.setItem('profile_id', data.id);
+                } else {
+                    console.error('Failed to fetch user data');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchUserData();
+    }, [setuserData]);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleEditClick = () => {
+        setIsEditing(true);
+    };
+
+    const handleSaveClick = async () => {
+        const token = localStorage.getItem('token');
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/users/update/', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                const updatedData = await response.json();
+                setuserData(updatedData);
+                setIsEditing(false); // Exit edit mode
+            } else {
+                console.error('Failed to update user data');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+    
+
+    return (
+        <div className='dashboard-profilecontainer'>
+            <h1>Profile</h1>
+            <div className="dashboard-profileinfo">
+                <input
+                    value={formData.email || ''}
+                    name='email'
+                    placeholder='Email'
+                    type="email"
+                    // readOnly={!isEditing}
+                    onChange={handleInputChange}
+                />
+                <input
+                    value={formData.first_name || ''}
+                    name='first_name'
+                    placeholder='First-Name'
+                    type="text"
+                    readOnly={!isEditing}
+                    onChange={handleInputChange}
+                />
+                <input
+                    value={formData.last_name || ''}
+                    name='last_name'
+                    placeholder='Last-Name'
+                    type="text"
+                    readOnly={!isEditing}
+                    onChange={handleInputChange}
+                />
+                <input
+                    value={formData.street_address || ''}
+                    name='street_address'
+                    placeholder='Address'
+                    type="text"
+                    readOnly={!isEditing}
+                    onChange={handleInputChange}
+                />
+                <input
+                    value={formData.city || ''}
+                    name='city'
+                    placeholder='City'
+                    type="text"
+                    readOnly={!isEditing}
+                    onChange={handleInputChange}
+                />
+                <input
+                    value={formData.province || ''}
+                    name='province'
+                    placeholder='Province'
+                    type="text"
+                    readOnly={!isEditing}
+                    onChange={handleInputChange}
+                />
+                {isEditing ? (
+                    <button type="button" onClick={handleSaveClick}>Save</button>
+                ) : (
+                    <button type="button" onClick={handleEditClick}>Edit</button>
+                )}
+            </div>
+        </div>
+    );
 }
 
-export default DashboardProfile
+export default DashboardProfile;

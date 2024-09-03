@@ -11,14 +11,14 @@ function FirstStep() {
     const checkAuth = () => {
         let hasError = false;
 
-        if (userData.firstname.trim() === '') {
+        if (userData.first_name.trim() === '') {
             setfnameError(true);
             hasError = true;
         } else {
             setfnameError(false);
         }
 
-        if (userData.lastname.trim() === '') {
+        if (userData.last_name.trim() === '') {
             setlnameError(true);
             hasError = true;
         } else {
@@ -46,26 +46,26 @@ function FirstStep() {
 
                 <div className="signup-form">
                     <div className='fullnamebox'>
-                        <div className='firstName'>
+                        <div className='first_name'>
                             <input
-                                value={userData.firstname}
+                                value={userData.first_name}
                                 onChange={handleChnage}
-                                name='firstname'
+                                name='first_name'
                                 placeholder='First-Name'
                                 type="text"
                             />
-                            {fnameError && <span style={{ color: 'red' }}>Please enter firstname</span>}
+                            {fnameError && <span style={{ color: 'red' }}>Please enter first_name</span>}
                         </div>
 
-                        <div className='lastName'>
+                        <div className='last_name'>
                             <input
-                                value={userData.lastname}
+                                value={userData.last_name}
                                 onChange={handleChnage}
-                                name='lastname'
+                                name='last_name'
                                 placeholder='Last-Name'
                                 type="text"
                             />
-                            {lnameError && <span style={{ color: 'red' }}>Please enter lastname</span>}
+                            {lnameError && <span style={{ color: 'red' }}>Please enter last_name</span>}
                         </div>
                     </div>
 

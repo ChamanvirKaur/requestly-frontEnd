@@ -31,12 +31,17 @@ function ThirdStep() {
                     password: userData.password,
                     first_name: userData.first_name,
                     last_name: userData.last_name,
+                    street_address : userData.street_street_address,
+                    city : userData.city,
+                    province : userData.province,
                 }),
             });
 
             const data = await response.json();
-            console.log(data);
-            
+            console.log("Email",userData.email);
+            console.log("first_name",userData.first_name);
+            console.log("last_name",userData.last_name);
+
 
             // If successful, show popup and navigate
             if (response.ok) {
@@ -58,7 +63,7 @@ function ThirdStep() {
                     {/* Your heading or other content */}
                 </div>
                 <div className="signup-form">
-                    <input value={userData.address} onChange={handleChnage} name='address' placeholder='Address' type="text" />
+                    <input value={userData.street_address} onChange={handleChnage} name='street_address' placeholder='street_address' type="text" />
                     <input value={userData.city} onChange={handleChnage} name='city' placeholder='City' type="text" />
                     <input value={userData.province} onChange={handleChnage} name='province' placeholder='Province' type="text" />
                 </div>

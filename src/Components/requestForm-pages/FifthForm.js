@@ -2,21 +2,24 @@ import React, { useEffect, useState, useContext } from 'react';
 import { multiStepContext } from '../../StepContext';
 
 function FifthForm() {
+  
   const [branches, setBranches] = useState([]);
   const [cities, setCities] = useState([]); // State for cities
   const [searchTerm, setSearchTerm] = useState('');
   const {
     branch, setBranch,
     branchprovince, setbranchProvince,
-    branchcity, setbranchCity
+    branchcity, setbranchCity,
+    branchIdtosend,setbranchIdtosend
   } = useContext(multiStepContext);
 
   const fetchBranches = () => {
-    fetch('https://requestly.pythonanywhere.com/api/branch/')
+    fetch('http://127.0.0.1:8000/api/branch/')
       .then(response => response.json())
       .then(data => {
         console.log('API Response:', data);
         setBranches(data);
+        
       })
       .catch(error => console.error('Error fetching branch data:', error));
   };
@@ -49,22 +52,35 @@ function FifthForm() {
     )
     .sort((a, b) => a.branch_name.localeCompare(b.branch_name)); // Sort branches alphabetically
 
-  const handleProvinceChange = (event) => {
-    const selectedProvince = event.target.value;
-    setbranchProvince(selectedProvince);
-    setBranch(''); // Clear branch when province changes
-    setbranchCity(''); // Clear city when province changes
-    setSearchTerm(''); // Clear search term when province changes
-
-    // Filter cities based on the selected province
-    const filteredCities = branches
-      .filter(branch => branch.branch_province === selectedProvince)
-      .map(branch => branch.branch_city)
-      .sort((a, b) => a.localeCompare(b)); // Sort cities alphabetically
-
-    setCities([...new Set(filteredCities)]); // Set unique cities for the selected province
+    const handleProvinceChange = (event) => {
+      const selectedProvince = event.target.value;
+      setbranchProvince(selectedProvince);
+      setBranch(''); // Clear branch when province changes
+      setbranchCity(''); // Clear city when province changes
+      setSearchTerm(''); // Clear search term when province changes
+  
+      // Find the first branch with the selected province and store its branchId
+      const branchWithProvince = branches.find(branch => branch.branch_province === selectedProvince);
+      
+      if (branchWithProvince) {
+          const branchId = branchWithProvince.id;
+          setbranchIdtosend(branchId); // Set the branch ID in state
+          localStorage.setItem('branchId', branchId); // Store the branch ID in local storage
+          console.log(localStorage.getItem('branchId'))
+      } else {
+          setbranchIdtosend(null); // Clear the branch ID if no matching branch is found
+          localStorage.removeItem('branchId'); // Remove the branch ID from local storage if no match is found
+      }
+  
+      // Filter cities based on the selected province
+      const filteredCities = branches
+        .filter(branch => branch.branch_province === selectedProvince)
+        .map(branch => branch.branch_city)
+        .sort((a, b) => a.localeCompare(b)); // Sort cities alphabetically
+  
+      setCities([...new Set(filteredCities)]); // Set unique cities for the selected province
   };
-
+  
   const handleCityChange = (event) => {
     const selectedCity = event.target.value;
     setbranchCity(selectedCity);

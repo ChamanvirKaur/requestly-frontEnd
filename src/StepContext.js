@@ -9,15 +9,15 @@ export const multiStepContext=React.createContext();
     const [currentStep,setcurrentStep]=useState(1);
     // this states are for registering the data
     const [userData,setuserData] =useState({
-        firstname :"",
-        lastname : "",
+        first_name :"",
+        last_name : "",
         phone : "",
         email : "",
         password :"",
-        address : "",
+        street_address : "",
         city : "",
         province : "",
-        ConfirmPassword :""
+      
  });
     const [finalData,setfinalData]=useState([]);
 
@@ -29,7 +29,7 @@ export const multiStepContext=React.createContext();
   const [branch,setBranch]=useState("")
   const [branchprovince,setbranchProvince] = useState("")
   const [branchcity,setbranchCity]=useState("")
-
+  const [branchIdtosend,setbranchIdtosend]=useState("")
 
   // Authentication states
   const [authToken,setauthToken]=useState("")
@@ -93,7 +93,8 @@ export const multiStepContext=React.createContext();
         budget,setBudget,handlebudgetChange,
         branch,setBranch,handlebranchChange,
         branchprovince,setbranchProvince,handlebranchprovince,
-        branchcity,setbranchCity,handlebranchcityChange
+        branchcity,setbranchCity,handlebranchcityChange,
+        branchIdtosend,setbranchIdtosend
       }}>
         <App/>
       </multiStepContext.Provider>

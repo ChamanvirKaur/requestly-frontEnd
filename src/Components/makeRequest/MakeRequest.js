@@ -33,23 +33,35 @@ function MakeRequest() {
     };
 
     const moveToDash = async () => {
+        const token = localStorage.getItem('token');
+        console.log("tokem on makerequest is :" , token)
         if (page === FormTitles.length - 1) {
+
             try {
                 const response = await fetch('http://127.0.0.1:8000/api/users/ticket/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                           'Accept':'*/*',
+                         'Authorization': `Token ${token}`
                     },
                     credentials: 'include',
                     body: JSON.stringify({
                         Budget: budget,
-                        created_by:createdFor,
-                        description: "NO Description",
+                        created_by:localStorage.getItem('profile_id'),
+                        description: budget ,
                         estimated_completion: duedate,
+                        requested_branch: branch,
+                        ticket_category:selectedCategory,
+                        ticket_type:categoryType
                     }),
                 
                 });
-                console.log(createdFor);
+                // console.log("ID you snet is:",localStorage.getItem('profile_id'));
+                console.log("estimatedtiem you sent is:",duedate);
+                // console.log("Requested for:",userData.email);
+                // console.log("description:", budget)
+
                 console.log(response)
                 // Check if the response is successful
                 if (response.ok) {
