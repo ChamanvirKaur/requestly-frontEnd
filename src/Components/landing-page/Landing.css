@@ -95,7 +95,7 @@
 
 /* Buttons inside service-icon-1 */
 .service-1 .service-icon-1 button{
-  width: 117px;
+  /* width: 117px; */
   height: 45px;
   border-radius: 100px;
   padding: 8px 24px;
@@ -144,7 +144,7 @@
 }
 
 .service-icon-2 button {
-  width: 117px;
+  /* width: 117px; */
   height: 45px;
   border-radius: 100px;
   padding: 8px 24px;
@@ -152,6 +152,55 @@
 
 .service-icon-2 i {
   font-size: 44px;
+}
+
+.allServices-view{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.allserviceview{
+  width: 100%;
+  border: 1px solid #888888;
+  border-radius: 500px;
+  display: flex;
+  /* margin-top: 20px; */
+}
+.allservicesview-icon {
+  width: 10%;
+  text-align: center;
+  padding: 20px;
+}
+
+.allservicesview-icon i{
+  padding: 20px;
+  font-size: 50px;
+  border-radius: 50%;
+}
+.allservicesview-name {
+  width: 50% ;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+
+}
+
+.allservicesview-name p{
+  font-weight: 400;
+  font-size: 32px;
+  color: #ffffff;
+}
+.allservicesview-content {
+  width: 80%;
+  background-color: #282828;
+  border-radius: 500px;
+  color: #ffffff;
+  padding: 20px;
+  border: 1px solid #888888;
+}
+
+
+.allservicesview-content .allserviceview-content-text{
+    border-radius: 500px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -162,4 +211,21 @@
   .headerBox .headerBoxImage {
     width: 100%;
   }
+
+  .allserviceview{
+    display: block;
+    border-radius: 50px;
+    margin-top: 10px;
+  }
+  .allserviceview:hover{
+    background-color: #00DF82;
+  }
+  .allservicesview-icon, .allservicesview-name, .allservicesview-content{
+    width: 100%;
+  }
+
+  .allservicesview-content{
+    border-radius: 0 0 50px 50px;
+  }
+
 }

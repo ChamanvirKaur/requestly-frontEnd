@@ -45,11 +45,39 @@ function Landing() {
         }
     ];
 
+    const allService =[
+      {
+        serviceName : "Media",
+        iconClass: "fa-solid fa-photo-film",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
+        backgroundColor: "#936BFE"
+      },
+      {
+        serviceName : "Creative",
+        iconClass: "fa-brands fa-creative-commons-share",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
+        backgroundColor : "#FEEA7B"
+      },
+      {
+        serviceName : "Print",
+        iconClass: "fa-solid fa-print",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
+        backgroundColor : "#FE7D84"
+      },
+      {
+        serviceName : "Social Media",
+        iconClass: "fa-solid fa-photo-film",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
+        backgroundColor : "#557FFF"
+      },
+
+
+    ];
     const services2 = [
       {
           content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
           iconClass: "fa-solid fa-photo-film",
-          buttonText: "Media",
+          buttonText: "Social Media",
           backgroundColor: "#FE7D84", 
           animation: "fade-right",
           buttonBackground : "#F94B60",
@@ -58,7 +86,7 @@ function Landing() {
       {
           content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
           iconClass: "fa-brands fa-creative-commons-share",
-          buttonText: "Creative",
+          buttonText: "And More",
           backgroundColor: "#936BFE", 
           animation: "fade-left",
           buttonBackground : "#5C2BE9",
@@ -111,6 +139,19 @@ function Landing() {
                                     <div className='service-icon-2'>
                                         <button style={{ color : "#ffffff" , backgroundColor : services2.buttonBackground , border : services2.buttonBorder}}>{services2.buttonText}</button>
                                         <i className={services2.iconClass} style={{color : services2.buttonBackground}}></i>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className='allServices-view'>
+                        {allService.map((allService, index) => (
+                                <div key={index} className='allserviceview'>
+                                    <div className='allservicesview-icon'><i className={allService.iconClass} style={{backgroundColor : allService.backgroundColor}}></i></div>
+                                    <div className='allservicesview-name'><p>{allService.serviceName}</p></div>
+                                    <div className='allservicesview-content'>
+                                    <p>{allService.content}</p>
+
                                     </div>
                                 </div>
                             ))}
