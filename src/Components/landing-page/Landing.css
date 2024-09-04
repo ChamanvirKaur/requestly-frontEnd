@@ -1,131 +1,165 @@
-.headerBox{
+.headerBox {
   width: 100%;
   display: flex;
   padding: 50px;
-
 }
 
-.headerBoxImage{
-  width: 50%;
+.header-text {
+  width: 100%;
+  margin: auto;
   text-align: center;
+  margin-top: 10%;
 }
 
-.landingpageimg{
-  width: 500px;
-  height: 500px;
-  margin-top: 10px;
-}
-.header-text{
-    width: 50%;
-    margin: auto;
-    text-align: center;
-    margin-top: 10%;
-  }
-  
-  .info-text{
-    font-size: 30px;
-    color: white;
-  }
-  
-  .info-text span{
-    font-size: 35px;
-    color: #ff004f;
-  }
-  .request-types-text h3{
-    color: #ababab;
-  
-  }
-  .request-types-text span{
-    color: #ff004f;
-    
-  }
-  
-  .auth-buttons{
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .explore-que{
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .auth-buttons .sign-up-button , .login-button{
-    display: block;
-    margin: 20px auto;
-    width: fit-content;
-    border: 1px solid #ff004f;
-    padding: 14px 50px;
-    border-radius: 6px;
-    background: #ff004f;
-    color: #fff;
-    text-decoration: none;
-    transition: background 0.5s;
-  }
-  .sign-up-button:hover , .login-button:hover{
-    background: #fff;
-    color: #ff004f;
-  }
-
-  /* services */
-
-#services{
-  padding: 30px 0;
-
+.info-text {
+  color: white;
 }
 
-.services-list{
+.info-text h1 {
+  font-weight: 500;
+  font-size: 120px;
+  line-height: 132px;
+  align-items: center;
+}
+
+.info-text p {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 32.9px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.you-can-request {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.you-can-request .you-can-request-button, .login-button {
+  display: block;
+  margin: 20px auto;
+  width: fit-content;
+  padding: 16px 32px;
+  border-radius: 100px;
+  background: #00DF82;
+  text-decoration: none;
+  transition: background 0.5s;
+  border: 1px solid #00DF82;
+}
+
+.you-can-request-button:hover, .login-button:hover {
+  color: white;
+}
+
+/* services */
+.services-list-1{
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 40px;
   margin-top: 50px;
 }
 
-.services-list div{
-  background: #26262664;
-  color: #ababab;
-  padding: 40px;
-  font-size: 13px;
-  font-weight: 300;
-  border-radius: 10px;
-  transition:background 0.5s, transform 0.5s;
-
+/* service-1 class */
+.services-list-1 .service-1{
+  background: #5C2BE9;
+  padding: 16px 24px;
+  border-radius: 16px;
+  transition: background 0.5s, transform 0.5s;
+  position: relative; 
+  min-height: 200px; 
 }
 
-.services-list div i{
-  font-size: 50px;
-  margin-bottom:30px ;
+/* Text content inside the services */
+.services-list-1 p{
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  color: #ffffff;
+  margin-bottom: 50px;
 }
 
-.services-list div h2{
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 15px;
+/* service-icon-1 class */
+.service-1 .service-icon-1{
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute; /* Fix the position at the bottom of the container */
+  bottom: 16px; /* Distance from the bottom of the container */
+  left: 0;
+  padding: 0 24px;
 }
 
-.services-list div a{
-  text-decoration: none;
-  color: #fff;
-  font-size: 12px;
-  margin-top: 20px;
-  display: inline-block;
+/* Buttons inside service-icon-1 */
+.service-1 .service-icon-1 button{
+  width: 117px;
+  height: 45px;
+  border-radius: 100px;
+  padding: 8px 24px;
 }
 
-.services-list div:hover{
-
-  background: #ff004f;
-  transform: translateY(-10px);
+/* Icon inside service-icon-1 */
+.service-1 .service-icon-1 i{
+  font-size: 44px;
+  color: #936BFE;
 }
 
-@media only screen and (max-width : 768px){
-  .headerBox{
+
+/* service-list-2 class, containing service-2 divisions */
+.services-list-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.services-list-2 .service-2 {
+  padding: 16px 24px;
+  border-radius: 16px;
+  transition: background 0.5s, transform 0.5s;
+  position: relative; 
+  min-height: 300px;
+}
+
+.services-list-2 p {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.services-list-2 .service-icon-2 {
+  width: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute; /* Fix the position at the bottom of the container */
+  bottom: 16px; /* Distance from the bottom of the container */
+  left: 0;
+  padding: 0 24\px;
+}
+
+.service-icon-2 button {
+  width: 117px;
+  height: 45px;
+  border-radius: 100px;
+  padding: 8px 24px;
+}
+
+.service-icon-2 i {
+  font-size: 44px;
+}
+
+@media only screen and (max-width: 768px) {
+  .headerBox {
     display: block;
   }
 
-  .headerBox .headerBoxImage{
+  .headerBox .headerBoxImage {
     width: 100%;
   }
 }

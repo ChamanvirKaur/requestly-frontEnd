@@ -3,8 +3,13 @@ import './Footer.css'
 function Footer() {
   return (
     <div className='footer'>
-            <p>copyright &copy; made with <i class="fa-solid fa-heart"></i> Tulong Technology </p>
-      
+            <div className='footer-button'>
+                <div className='footer-button-1'>Tulong Technologies</div>
+                <div className='footer-button-2'> Contact Us</div>
+            </div>
+            <div className='footer-copyright'>
+                <p>&copy;2024 Tulong Technologies</p>
+            </div>    
     </div>
   )
 }
