@@ -21,21 +21,22 @@ function Signup() {
     }
   }
   return (
+    <>
     <div className='signup-mainContent'>
       <div className='signup-otherContent'>
-      <i class="fa-solid fa-user"></i>
+          <p><b>For when you need help submitting requests — you’ve come to the right place.</b></p>
       </div>
       <div className='center-stepper'>
           <Stepper style={{ width : '50%' , margin:'auto'}}  activeStep= {currentStep -1} orientation='horizontal'>
             <Step>
-              <StepLabel><span style={{color:'green'}}>Step-1</span></StepLabel>
+              <StepLabel><span style={{color:'#080808'}}>1</span></StepLabel>
             </Step>
             <Step>
-              <StepLabel><span style={{color:'green'}}>Step-2</span></StepLabel>
+              <StepLabel><span style={{color:'#080808'}}>2</span></StepLabel>
             </Step>
 
             <Step>
-              <StepLabel><span style={{color:'green'}}>Step-3</span></StepLabel>
+              <StepLabel><span style={{color:'#080808'}}>3</span></StepLabel>
             </Step>
           </Stepper>
           { showStep(currentStep)}
@@ -43,7 +44,7 @@ function Signup() {
        
       </div>
     
-    </div>
+    </div></>
   )
 }
 

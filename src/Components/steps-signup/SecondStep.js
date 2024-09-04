@@ -74,11 +74,11 @@ function SecondStep() {
                     </div>
                 </div>
                 <div className='next-back-buttons'>
-                    <button className="submit-button" onClick={() => setcurrentStep(1)}>
-                        Back
+                    <button  onClick={() => setcurrentStep(1)}>
+                    &#8592; Previous step 
                     </button>
-                    <button className="submit-button" onClick={checkAuth}>
-                        Next
+                    <button  onClick={checkAuth}>
+                        Next step &#8594;
                     </button>
                 </div>
             </div>

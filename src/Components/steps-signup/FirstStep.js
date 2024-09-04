@@ -81,9 +81,9 @@ function FirstStep() {
                     </div>
                 </div>
 
-                <div>
-                    <button className="submit-button" onClick={checkAuth}>
-                        Next
+                <div className="next-step">
+                    <button  onClick={checkAuth}>
+                        Next step &#8594;
                     </button>
                 </div>
             </div>

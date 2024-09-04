@@ -94,7 +94,9 @@ function Login() {
   return (
     <div className='login-container'>
       <div className="login-otherContent">
-        <i className="fa-solid fa-user"></i>
+        <p>
+        It’s good to see you again — welcome back!
+        </p>
       </div>
       <div className="login-contentBox">
         <form onSubmit={handleSubmit}>
@@ -118,8 +120,8 @@ function Login() {
               type="password"
             />
             {passwordError && <span style={{ color: "red" }}>Please enter password</span>}
-            <div>
-              <button className="submit-button" type='submit'>
+            <div className='next-step'>
+              <button  type='submit'>
                 Submit
               </button>
             </div>

@@ -1,19 +1,23 @@
 .signup-mainContent{
-  width: 100%;
+  width: 90%;
   display: flex;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
+  margin: auto;
+  background-color: #00DF82;
+  padding: 25px;
+  margin-bottom: -30px;
+  margin-top: 25px;
 }
 
 
 .signup-otherContent{
   width: 50%;
   padding: 50px;
-  text-align: center;
-  text-align: center;
+
+}
+.signup-otherContent p{
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 78.6px;
 }
 .signup-otherContent i{
   font-size: 250px;

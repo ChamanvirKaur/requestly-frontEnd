@@ -68,11 +68,11 @@ function ThirdStep() {
                     <input value={userData.province} onChange={handleChnage} name='province' placeholder='Province' type="text" />
                 </div>
                 <div className='next-back-buttons'>
-                    <button className="submit-button" onClick={() => setcurrentStep(2)}>
-                        Back
+                    <button  onClick={() => setcurrentStep(2)}>
+                         &#8592; Previous step 
                     </button>
-                    <button className="submit-button" onClick={submitData}>
-                        Submit
+                    <button  onClick={submitData}>
+                        Submit &#8594;
                     </button>
                 </div>
             </div>
