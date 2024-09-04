@@ -1,25 +1,9 @@
 #header{
     width: 100%;
     position: relative;
-    /* height: 100vh; */
-    /* background-image: url(images/MeetSoni.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 40%; */
+ 
 }
 
-
-
-img{
-    width: 150px;
-    height: 150px;
-}
-
-#logo{
-    width: 140px;
-    height: 50px;
-    margin-top: 20px;
-}
 nav{
     display: flex;
     align-items: center;
@@ -28,22 +12,46 @@ nav{
     
 }
 
+.header-logo{
+    margin-left: 20px;
+}
+
+.header-logo img{
+    width: 40px;
+    height: 40px;
+}
+
+.header-logo span{
+    width: 181px;
+    height: 48px;
+    font-weight: 400;
+    color: #00DF82;
+    size: 40px;
+    margin-left: 10px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
 
 nav ul li {
     display: inline-block;
     list-style-type: none;
     margin: 10px 20px;
-    
+    padding: 10px 30px;
+    border: 1px solid #00DF82;
+    border-radius: 100px;
 
 }
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: #00DF82;
     position: relative;
+    line-height: 24px;
+    Width:54px;
+    height:24px;
 }
 
-nav ul li a::after {
+/* nav ul li a::after {
     content: '';
     width: 0%;
     height: 3px;
@@ -52,10 +60,19 @@ nav ul li a::after {
     left: 0;
     bottom: -6px;
     transition: 0.5s;
-}
+} */
 
-nav ul li a:hover::after{
+/* nav ul li a:hover::after{
     width: 100%;
+} */
+
+
+nav ul li:hover{
+    background-color: #00DF82;
+}
+nav ul li:hover a{
+    background-color: #00DF82;
+    color: white;
 }
 
 nav .fa-solid{
@@ -89,7 +106,7 @@ nav .fa-solid{
     }
 
     nav ul{
-        background-color: #ff004f;
+        background-color: #00DF82;
         position: fixed;
         top: 0;
         right: -500px;
@@ -103,6 +120,12 @@ nav .fa-solid{
     nav ul li{
         display: block;
         margin: 25px;
+        border: 0px;
+     
+    }
+
+    nav ul li a{
+        color: #ffffff;
     }
     nav ul .fa-solid{
         position: absolute;

@@ -45,9 +45,13 @@ function Header() {
   return (
     <div id="header">
       <nav>
-        <img className='header-logo-image' src="./images/requestlylogo.png" alt="Requestly Logo" />
+          <div className='header-logo'>
+              <img className='header-logo-image' src= "./images/Requestly logo.png" alt="" />
+              <span>Requestly</span>
+          </div>
 
-        <ul id="sidemenu">
+       <div className='header-list'>
+       <ul id="sidemenu">
           {isLoggedIn ? (
             <>
               <li><button onClick={handleLogout}>Logout</button></li>
@@ -60,6 +64,7 @@ function Header() {
           )}
           <i className="fa-sharp fa-solid fa-xmark" onClick={() => { document.getElementById("sidemenu").style.right = "-500px"; }}></i>
         </ul>
+       </div>
         <i className="fa-solid fa-bars" onClick={() => { document.getElementById("sidemenu").style.right = "-200px"; }}></i>
       </nav>
     </div>
