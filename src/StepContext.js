@@ -24,6 +24,7 @@ export const multiStepContext=React.createContext();
   // this states are to store the category of request in makerequest page
   const [selectedCategory, setSelectedCategory] = useState("---Select---");
   const [categoryType,setcategoryType] = useState("")
+  const  [description,setdescription]=useState("")
   const [duedate,setdueDate] = useState("")
   const [budget,setBudget]=useState("")
   const [branch,setBranch]=useState("")
@@ -54,6 +55,10 @@ export const multiStepContext=React.createContext();
     // this methode will call when user selects category type in makerequest pages forms
     const handlecategorytypeChange =(event)=>{
       setcategoryType(event.target.value);
+    }
+
+    const handledescriptionchange =(event)=>{
+        setdescription(event.target.value)
     }
 
     // this methode will call when user selects due date in makerequest steps pages forms
@@ -94,7 +99,8 @@ export const multiStepContext=React.createContext();
         branch,setBranch,handlebranchChange,
         branchprovince,setbranchProvince,handlebranchprovince,
         branchcity,setbranchCity,handlebranchcityChange,
-        branchIdtosend,setbranchIdtosend
+        branchIdtosend,setbranchIdtosend,
+        description,setdescription,handledescriptionchange
       }}>
         <App/>
       </multiStepContext.Provider>

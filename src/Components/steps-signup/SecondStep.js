@@ -3,11 +3,11 @@ import './steps.css';
 import { multiStepContext } from '../../StepContext';
 
 function SecondStep() {
-    const { setcurrentStep, userData, setuserData, handleChnage } = useContext(multiStepContext);
+    const { setcurrentStep, userData, setuserData } = useContext(multiStepContext);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [passwordError, setPasswordError] = useState(false);
-    const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -17,21 +17,42 @@ function SecondStep() {
         setShowConfirmPassword(!showConfirmPassword);
     };
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setuserData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const isStrongPassword = (password) => {
+        const minLength = 8;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        return password.length >= minLength && hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar;
+    };
+
     const checkAuth = () => {
         let hasError = false;
 
-        if (userData.password.trim() === '') {
-            setPasswordError(true);
+        if (!userData.password?.trim()) {
+            setPasswordError('Enter a password');
+            hasError = true;
+        } else if (!isStrongPassword(userData.password)) {
+            setPasswordError('Password must be at least 8 characters long, include uppercase and lowercase letters, a number, and a special character.');
             hasError = true;
         } else {
-            setPasswordError(false);
+            setPasswordError('');
         }
 
-        if (userData.ConfirmPassword.trim() === '' || userData.ConfirmPassword !== userData.password) {
-            setConfirmPasswordError(true);
+        if (!userData.ConfirmPassword?.trim() || userData.ConfirmPassword !== userData.password) {
+            setConfirmPasswordError('Passwords do not match');
             hasError = true;
         } else {
-            setConfirmPasswordError(false);
+            setConfirmPasswordError('');
         }
 
         if (!hasError) {
@@ -48,8 +69,8 @@ function SecondStep() {
                 <div className="signup-form">
                     <div className="password-container">
                         <input
-                            value={userData.password}
-                            onChange={handleChnage}
+                            value={userData.password || ''}
+                            onChange={handleChange}
                             name='password'
                             placeholder='Password'
                             type={showPassword ? "text" : "password"}
@@ -57,12 +78,12 @@ function SecondStep() {
                         <span className="eye-icon" onClick={togglePasswordVisibility}>
                             {showPassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </span>
-                        {passwordError && <span style={{ color: 'red' }}>Enter a password</span>}
+                        {passwordError && <span style={{ color: 'red' }}>{passwordError}</span>}
                     </div>
                     <div className="password-container">
                         <input
-                            value={userData.ConfirmPassword}
-                            onChange={handleChnage}
+                            value={userData.ConfirmPassword || ''}
+                            onChange={handleChange}
                             name='ConfirmPassword'
                             placeholder='Confirm Password'
                             type={showConfirmPassword ? "text" : "password"}
@@ -70,14 +91,14 @@ function SecondStep() {
                         <span className="eye-icon" onClick={toggleConfirmPasswordVisibility}>
                             {showConfirmPassword ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
                         </span>
-                        {confirmPasswordError && <span style={{ color: 'red' }}>Passwords do not match</span>}
+                        {confirmPasswordError && <span style={{ color: 'red' }}>{confirmPasswordError}</span>}
                     </div>
                 </div>
                 <div className='next-back-buttons'>
-                    <button  onClick={() => setcurrentStep(1)}>
-                    &#8592; Previous step 
+                    <button onClick={() => setcurrentStep(1)}>
+                        &#8592; Previous step 
                     </button>
-                    <button  onClick={checkAuth}>
+                    <button onClick={checkAuth}>
                         Next step &#8594;
                     </button>
                 </div>

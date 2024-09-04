@@ -19,11 +19,12 @@ function FifthForm() {
       .then(data => {
         console.log('API Response:', data);
         setBranches(data);
-        
+    
       })
       .catch(error => console.error('Error fetching branch data:', error));
   };
 
+ 
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
@@ -97,7 +98,9 @@ function FifthForm() {
   };
 
   return (
-    <div className='requestForm'>
+    <>
+
+<div className='requestForm'>
       <div className='customDropdown'>
         <h2>Province where you want to request</h2>
         <select 
@@ -150,6 +153,11 @@ function FifthForm() {
         </select>
       </div>
     </div>
+
+     
+    
+    </>
+   
   );
 }
 

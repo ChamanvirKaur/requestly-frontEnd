@@ -37,7 +37,7 @@
   justify-content: center;
 }
 
-.you-can-request .you-can-request-button, .login-button {
+.you-can-request .you-can-request-button {
   display: block;
   margin: 20px auto;
   width: fit-content;
@@ -47,9 +47,10 @@
   text-decoration: none;
   transition: background 0.5s;
   border: 1px solid #00DF82;
+  color: #282828;
 }
 
-.you-can-request-button:hover, .login-button:hover {
+.you-can-request-button:hover {
   color: white;
 }
 
