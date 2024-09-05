@@ -41,7 +41,7 @@ function FirstStep() {
         <div className='signup-container'>
             <div className="signup-contentBox">
                 <div className="signup-h1">
-                    {/* Add your heading or title here */}
+                  
                 </div>
 
                 <div className="signup-form">

@@ -45,3 +45,40 @@
     align-items: center;
     color: #080808;
 }
+
+@media only screen and (max-width : 768px){
+    .footer{
+        width: 90%;
+        display: block;
+    }
+
+    .footer-button{
+        display: block;
+        margin-top: 30px;
+    
+    }
+
+    .footer-button-2{
+        margin-top: 30px;
+
+    }
+
+}
+
+@media only screen and (max-width : 320px){
+    .footer{
+        width: 90%;
+        display: block;
+    }
+
+    .footer-button{
+        display: block;
+        margin-top: 30px;
+    
+    }
+
+    .footer-button-2{
+        margin-top: 30px;
+
+    }
+}

@@ -168,3 +168,27 @@
 .signup-form input {
     padding-right: 30px; /* Make space for the eye icon */
 }
+
+@media only screen and (max-width : 768px){
+    .fullnamebox{
+        width: 100%;
+        display: block;
+         
+    }
+
+    .next-step{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width : 320px){
+    .fullnamebox{
+        width: 100%;
+        display: block;
+         
+    }
+
+    .next-step{
+        text-align: center;
+    }
+}

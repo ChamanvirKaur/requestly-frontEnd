@@ -230,3 +230,31 @@
   }
 
 }
+
+@media only screen and (max-width: 320px) {
+  .headerBox {
+    display: block;
+    width: 100%;
+  }
+
+  .headerBox .headerBoxImage {
+    width: 100%;
+  }
+
+  .allserviceview{
+    display: block;
+    border-radius: 50px;
+    margin-top: 10px;
+  }
+  .allserviceview:hover{
+    background-color: #00DF82;
+  }
+  .allservicesview-icon, .allservicesview-name, .allservicesview-content{
+    width: 100%;
+  }
+
+  .allservicesview-content{
+    border-radius: 0 0 50px 50px;
+  }
+
+}

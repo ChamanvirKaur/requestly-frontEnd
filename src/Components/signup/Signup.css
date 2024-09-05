@@ -19,15 +19,7 @@
   font-size: 64px;
   line-height: 78.6px;
 }
-.signup-otherContent i{
-  font-size: 250px;
-  margin-top: 20px;
-  background: linear-gradient(145deg, #2a2a2a, #ff004f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: font-size 0.3s ease;
 
-}
 .center-stepper{
   width: 50%;
  
@@ -46,8 +38,29 @@
     width: 100%;
   }
 
-  .signup-otherContent i {
-    font-size: 200px
+  .signup-otherContent h1 {
+    font-size: 50px
+  }
+
+  .center-stepper{
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width : 320px){
+  .signup-mainContent{
+    display: block;
+  }
+
+  .signup-otherContent {
+    width: 100%;
+    
+  }
+
+  .signup-otherContent p {
+    font-size: 50px;
+    line-height: 65px;
   }
 
   .center-stepper{
