@@ -33,11 +33,13 @@ function DashboardRequest() {
   return (
     <div className='dashboard-request'>
       <h1>My Requests</h1>
-      {requests.length > 0 ? (
+      <div className='my-Requests'>
+            {requests.length > 0 ? (
         <table className="request-table">
           <thead>
             <tr>
               {/* <th>ID</th> */}
+              <th>#</th>
               <th>Ticket Category</th>
               <th>Description</th>
               <th>Requested Branch</th>
@@ -47,9 +49,10 @@ function DashboardRequest() {
             </tr>
           </thead>
           <tbody>
-            {requests.map(request => (
+            {requests.map((request,index) => (
               <tr key={request.id}>
                 {/* <td>{request.id}</td> */}
+                <td>{index + 1}</td> {/* Displaying the index + 1 */}
                 <td>{request.ticket_category}</td>
                 <td>{request.description}</td>
                 <td>{request.requested_branch}</td>
@@ -63,6 +66,7 @@ function DashboardRequest() {
       ) : (
         <p>No requests found</p>
       )}
+      </div>
     </div>
   );
 }

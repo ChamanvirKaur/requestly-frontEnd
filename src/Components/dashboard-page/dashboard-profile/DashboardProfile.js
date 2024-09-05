@@ -3,10 +3,11 @@ import './DashboardProfile.css';
 import { multiStepContext } from '../../../StepContext';
 
 function DashboardProfile() {
+    const popupMessage="Profile Updated Successfully"
     const { userData, setuserData } = useContext(multiStepContext);
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({});
-
+    const [updatePopup,setupdatePopup] =useState(false);
     useEffect(() => {
         // Fetch user data from the API
         const fetchUserData = async () => {
@@ -37,6 +38,9 @@ function DashboardProfile() {
         fetchUserData();
     }, [setuserData]);
 
+    const closePopup=()=>{
+        setupdatePopup(false);
+    }
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -66,6 +70,7 @@ function DashboardProfile() {
                 const updatedData = await response.json();
                 setuserData(updatedData);
                 setIsEditing(false); // Exit edit mode
+                setupdatePopup(true);
             } else {
                 console.error('Failed to update user data');
             }
@@ -76,7 +81,8 @@ function DashboardProfile() {
     
 
     return (
-        <div className='dashboard-profilecontainer'>
+       <>
+         <div className='dashboard-profilecontainer'>
             <h1>Profile</h1>
             <div className="dashboard-profileinfo">
                 <input
@@ -134,6 +140,16 @@ function DashboardProfile() {
                 )}
             </div>
         </div>
+
+        {updatePopup && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <h2>{popupMessage}</h2>
+                        <button className='close-button' onClick={closePopup}>Close</button>
+                    </div>
+                </div>
+            )}
+       </>
     );
 }
 
