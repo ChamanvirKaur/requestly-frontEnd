@@ -17,7 +17,7 @@ function Landing() {
     // Array containing the data for each service container
     const services = [
         {
-            content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
+            content: "Initiate media plan requests here, Don't have all the details yet ? No worries! Tell us who you want to reach and we'll do the rest",
             iconClass: "fa-solid fa-photo-film",
             buttonText: "Media",
             backgroundColor: "#5C2BE9", 
@@ -26,7 +26,7 @@ function Landing() {
             buttonBorder : "#936BFE"
         },
         {
-            content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
+            content: "Our human (and AI enabled) creative team are standing by. Need somethin designed Click here!",
             iconClass: "fa-brands fa-creative-commons-share",
             buttonText: "Creative",
             backgroundColor: "#F94B60", 
@@ -35,7 +35,7 @@ function Landing() {
             buttonBorder:"#FE7D84"
         },
         {
-            content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
+            content: "From idea to print. Our team can help with everything from posters and business cards to print ads and cool hold-in-your-hands sales and marketing materials",
             iconClass: "fa-solid fa-print",
             buttonText: "Print",
             backgroundColor: "#1A51F4", 
@@ -75,7 +75,7 @@ function Landing() {
     ];
     const services2 = [
       {
-          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
+          content: "Content, content, content. Need help finding the right words or image for social media account or campaigns? with access 1000s of free assets, click here for help!",
           iconClass: "fa-solid fa-photo-film",
           buttonText: "Social Media",
           backgroundColor: "#FE7D84", 
@@ -84,9 +84,9 @@ function Landing() {
           buttonBorder : "#F94B60"
       },
       {
-          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
+          content: "If you have marketing mission beyond these short categories, tell us about it and we'll jump in like marketing avengers!",
           iconClass: "fa-brands fa-creative-commons-share",
-          buttonText: "And More",
+          buttonText: "Marketing And More",
           backgroundColor: "#936BFE", 
           animation: "fade-left",
           buttonBackground : "#5C2BE9",
@@ -105,7 +105,7 @@ function Landing() {
                         <div className="info-text">
                             <h1 className=''>Made for</h1>
                             <h1>strategic marketers</h1>
-                            <p>Transforming the hassle of submitting requests into a smooth and satisfying process</p>
+                            <p>Marketing requests sent directly to your marketing agency team</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ function Landing() {
                 {/* you can request button */}
                 <div className="you-can-request">
                     <div>
-                        <a href="/signup"><button className='you-can-request-button animate__animated animate__pulse animate__infinite infinite'>You can request &#8595;</button></a>
+                        <a href="/signup"><button className='you-can-request-button animate__animated animate__pulse animate__infinite infinite'> Get started &#8595;</button></a>
                     </div>
                 </div>
 

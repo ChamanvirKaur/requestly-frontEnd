@@ -47,6 +47,7 @@ function Login() {
       });
       console.log(formData)
       const data = await response.json();
+      console.log("Data at login:",data)
       
       console.log(data.token)
       if (response.ok) {

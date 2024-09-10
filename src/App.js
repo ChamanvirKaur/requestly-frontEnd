@@ -10,7 +10,7 @@ import Footer from './Components/footer/Footer';
 import { multiStepContext } from './StepContext';
 import { useContext } from 'react';
 import PrivateRoute from './Components/privateRoute/PrivateRoute';
-
+import PublicRoute from './Components/publicRoute/PublicRoute';
 function App() {
   const { currentStep, finalData } = useContext(multiStepContext);
 
@@ -20,8 +20,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Signup" element={<PublicRoute element={Signup} />} />
+          <Route path="/Login" element={<PublicRoute element={Login} />} />
           <Route path="/Dashboard" element={<PrivateRoute element={Dashpage} />} />
           <Route path="/makeRequest" element={<PrivateRoute element={MakeRequest} />} />
         </Routes>

@@ -38,6 +38,7 @@ function ThirdStep() {
             });
 
             const data = await response.json();
+            console.log("Data at registration:",data)
             console.log("Email",userData.email);
             console.log("first_name",userData.first_name);
             console.log("last_name",userData.last_name);
