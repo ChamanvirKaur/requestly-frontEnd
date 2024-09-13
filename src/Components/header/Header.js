@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-
+import API_BASE_URL from '../../apiConfig';
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -18,7 +18,7 @@ function Header() {
     if (token) {
       try {
         // Send a POST request to the logout API
-        const response = await fetch('http://127.0.0.1:8000/api/users/logout/', {
+        const response = await fetch(`${API_BASE_URL}/users/logout/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -32,6 +32,7 @@ function Header() {
           localStorage.removeItem('token');
           setIsLoggedIn(false);
           window.location.href = '/login'; // Redirect to the login page
+          localStorage.removeItem('email')
         } else {
           // Handle the error, e.g., show an error message
           console.error('Logout failed');

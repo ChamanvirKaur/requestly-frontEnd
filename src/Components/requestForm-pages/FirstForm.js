@@ -24,6 +24,7 @@ function FirstForm() {
             <option value="General">General</option>
 
         </select>
+        {selectedCategory=='Select' && <p style={{color:"red", marginTop:"10px"}}>Please select any Request Category</p>}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { multiStepContext } from '../../StepContext';
+import API_BASE_URL from '../../apiConfig';
 
 function FifthForm() {
   
@@ -14,7 +15,7 @@ function FifthForm() {
   } = useContext(multiStepContext);
 
   const fetchBranches = () => {
-    fetch('http://127.0.0.1:8000/api/branch/')
+    fetch(`${API_BASE_URL}/branch/`)
       .then(response => response.json())
       .then(data => {
         console.log('API Response:', data);

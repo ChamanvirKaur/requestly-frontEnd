@@ -22,7 +22,7 @@ export const multiStepContext=React.createContext();
     const [finalData,setfinalData]=useState([]);
 
   // this states are to store the category of request in makerequest page
-  const [selectedCategory, setSelectedCategory] = useState("---Select---");
+  const [selectedCategory, setSelectedCategory] = useState("Select");
   const [categoryType,setcategoryType] = useState("")
   const  [description,setdescription]=useState("")
   const [duedate,setdueDate] = useState("")

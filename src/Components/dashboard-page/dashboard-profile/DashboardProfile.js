@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './DashboardProfile.css';
 import { multiStepContext } from '../../../StepContext';
+import API_BASE_URL from '../../../apiConfig';
 
 function DashboardProfile() {
     const popupMessage="Profile Updated Successfully"
@@ -14,7 +15,7 @@ function DashboardProfile() {
             const token = localStorage.getItem('token');
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/users/profile/', {
+                const response = await fetch(`${API_BASE_URL}/users/profile/`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -57,7 +58,7 @@ function DashboardProfile() {
         const token = localStorage.getItem('token');
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/users/update/', {
+            const response = await fetch(`${API_BASE_URL}/users/update/`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

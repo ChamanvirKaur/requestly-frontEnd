@@ -113,7 +113,7 @@ function Landing() {
                 {/* you can request button */}
                 <div className="you-can-request">
                     <div>
-                        <a href="/signup"><button className='you-can-request-button animate__animated animate__pulse animate__infinite infinite'> Get started &#8595;</button></a>
+                        <a href="/makeRequest"><button className='you-can-request-button animate__animated animate__pulse animate__infinite infinite'> Get started &#8595;</button></a>
                     </div>
                 </div>
 

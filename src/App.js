@@ -23,7 +23,7 @@ function App() {
           <Route path="/Signup" element={<PublicRoute element={Signup} />} />
           <Route path="/Login" element={<PublicRoute element={Login} />} />
           <Route path="/Dashboard" element={<PrivateRoute element={Dashpage} />} />
-          <Route path="/makeRequest" element={<PrivateRoute element={MakeRequest} />} />
+          <Route path="/makeRequest" element={<MakeRequest />}/>
         </Routes>
         <Footer />
       </>

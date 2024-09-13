@@ -24,7 +24,12 @@ function Signup() {
     <>
     <div className='signup-mainContent'>
       <div className='signup-otherContent'>
-          <p><b>For when you need help submitting requests — you’ve come to the right place.</b></p>
+          <p><b>Hello <br /> 
+          
+          <img src="./images/ArborLogo.png" style={{width:"500px", height:"100px", marginBottom:"10px"}} alt="" />
+          Need Marketing support ?
+          You've come to the right place
+          </b></p>
       </div>
       <div className='center-stepper'>
           <Stepper style={{ width : '50%' , margin:'auto'}}  activeStep= {currentStep -1} orientation='horizontal'>

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import './steps.css';
 import { useNavigate } from 'react-router-dom';
 import { multiStepContext } from '../../StepContext';
+import API_BASE_URL from '../../apiConfig';
 
 function ThirdStep() {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ function ThirdStep() {
 
     const submitData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/users/register/', {
+            const response = await fetch(`${API_BASE_URL}/users/register/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,9 +48,11 @@ function ThirdStep() {
             // If successful, show popup and navigate
             if (response.ok) {
                 setShowPopup(true);
+                 localStorage.setItem('email',userData.email)
+
                 // Optionally, navigate to another page after showing the popup
                 setTimeout(() => {
-                    navigate("/login");
+                    navigate("/makeRequest");
                 }, 2000); // navigate after 2 seconds
             }
         } catch (error) {

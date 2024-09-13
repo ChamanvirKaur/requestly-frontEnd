@@ -67,4 +67,9 @@
     width: 100%;
   }
 
+  .signup-otherContent img{
+    width: 200px;
+    height: 200px;
+  }
+
 }

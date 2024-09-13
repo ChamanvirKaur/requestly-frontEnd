@@ -7,6 +7,7 @@ import FourthForm from '../requestForm-pages/FourthForm';
 import FifthForm from '../requestForm-pages/FifthForm';
 import './MakeRequest.css';
 import { multiStepContext } from '../../StepContext';
+import API_BASE_URL from '../../apiConfig';
 
 function MakeRequest() {
     const popupMessage = "Request submitted successfully";
@@ -41,40 +42,49 @@ function MakeRequest() {
     const moveToDash = async () => {
         const token = localStorage.getItem('token');
         if (page === FormTitles.length - 1) {
-            try {
-                const response = await fetch('http://127.0.0.1:8000/api/users/ticket/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': '*/*',
-                        'Authorization': `Token ${token}`
-                    },
-                    credentials: 'include',
-                    body: JSON.stringify({
-                        Budget: budget,
-                        created_by: localStorage.getItem('profile_id'),
-                        description: description,
-                        estimated_completion: duedate,
-                        requested_branch: branch,
-                        ticket_category: selectedCategory,
-                        ticket_type: categoryType
-                    }),
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Data submitted successfully:', data);
-                    setsuccessPopup(true);
-                    console.log("Value of showpopup is :",successPopup)
-                } else {
-                    console.error('Error submitting data:', response.statusText);
+                const token = localStorage.getItem('token');
+                if(token){
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/users/ticket/`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': '*/*',
+                                'Authorization': `Token ${token}`
+                            },
+                            credentials: 'include',
+                            body: JSON.stringify({
+                                Budget: budget,
+                                created_by: localStorage.getItem('profile_id'),
+                                description: description,
+                                estimated_completion: duedate,
+                                requested_branch: branch,
+                                ticket_category: selectedCategory,
+                                ticket_type: categoryType
+                            }),
+                        });
+        
+                        if (response.ok) {
+                            const data = await response.json();
+                            console.log('Data submitted successfully:', data);
+                            setsuccessPopup(true);
+                            console.log("Value of showpopup is :",successPopup)
+                        } else {
+                            console.error('Error submitting data:', response.statusText);
+                        }
+                    } catch (error) {
+                        console.error('Error submitting data:', error);
+                    }
+        
+                    navigate("/dashboard");
                 }
-            } catch (error) {
-                console.error('Error submitting data:', error);
-            }
-
-            navigate("/dashboard");
+                else{
+                    
+                    alert('first you need to login or signup');
+                    navigate("/signup")
+                }
         } else {
+
             setPage((currPage) => currPage + 1);
         }
     };
@@ -82,6 +92,7 @@ function MakeRequest() {
     return (
         <>
             <div className="form">
+                <h1>{localStorage.getItem('email')}</h1>
                 <div className="progressbar">
                     <div
                         style={{

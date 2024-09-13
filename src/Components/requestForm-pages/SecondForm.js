@@ -11,7 +11,7 @@ function SecondForm() {
     <div className='requestForm'>
         <h2>Select a request Type</h2>
 
-        {selectedCategory=='Select' && <h1>Please select any Request Category</h1>}
+       
         
         {/* It will appear when category is general */}
         {selectedCategory=='General' && <select 

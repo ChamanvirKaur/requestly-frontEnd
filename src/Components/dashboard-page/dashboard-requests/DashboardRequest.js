@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './DashboardRequest.css';
+import API_BASE_URL from '../../../apiConfig';
 
 function DashboardRequest() {
   const [requests, setRequests] = useState([]);
@@ -7,7 +8,7 @@ function DashboardRequest() {
   const token = localStorage.getItem('token'); // Adjust this according to your token storage mechanism
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/users/my-ticket/', {
+    fetch(`${API_BASE_URL}/users/my-ticket/`, {
       method: 'GET',
       headers: {
         'Accept': '*/*',
