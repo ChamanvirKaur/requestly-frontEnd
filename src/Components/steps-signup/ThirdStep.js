@@ -20,7 +20,7 @@ function ThirdStep() {
 
     const submitData = async () => {
         try {
-            const response = await fetch(`${API_BASE_URL}/users/register/`, {
+            const response = await fetch(`${API_BASE_URL}/users/signupandlogin/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,6 +39,7 @@ function ThirdStep() {
             });
 
             const data = await response.json();
+            console.log("Your signup token is : " , data.token)
             console.log("Data at registration:",data)
             console.log("Email",userData.email);
             console.log("first_name",userData.first_name);
@@ -49,7 +50,7 @@ function ThirdStep() {
             if (response.ok) {
                 setShowPopup(true);
                  localStorage.setItem('email',userData.email)
-
+                localStorage.setItem('token',data.token)
                 // Optionally, navigate to another page after showing the popup
                 setTimeout(() => {
                     navigate("/makeRequest");

@@ -31,6 +31,7 @@ export const multiStepContext=React.createContext();
   const [branchprovince,setbranchProvince] = useState("")
   const [branchcity,setbranchCity]=useState("")
   const [branchIdtosend,setbranchIdtosend]=useState("")
+  const [supportdocument,setsupportdocument]=useState("")
 
   // Authentication states
   const [authToken,setauthToken]=useState("")
@@ -85,6 +86,10 @@ export const multiStepContext=React.createContext();
       setbranchCity(event.target.value)
     }
 
+    const handlechangesupportdocument=(event)=>{
+      const file = event.target.files[0]; // Get the first selected file
+      setsupportdocument(file)
+    }
 
 // ------------------------------------------------------- Design part --------------------------------------------------------//
   return (
@@ -100,7 +105,8 @@ export const multiStepContext=React.createContext();
         branchprovince,setbranchProvince,handlebranchprovince,
         branchcity,setbranchCity,handlebranchcityChange,
         branchIdtosend,setbranchIdtosend,
-        description,setdescription,handledescriptionchange
+        description,setdescription,handledescriptionchange,
+        supportdocument,setsupportdocument,handlechangesupportdocument
       }}>
         <App/>
       </multiStepContext.Provider>

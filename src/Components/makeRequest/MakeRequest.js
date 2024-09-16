@@ -16,7 +16,9 @@ function MakeRequest() {
     const [page, setPage] = useState(0);
     const FormTitles = ["", "", "", "", ""];
     const [createdFor, setcreatedFor] = useState(localStorage.getItem('email'));
-    const { userData, selectedCategory, setSelectedCategory, categoryType, setcategoryType, duedate, setdueDate, budget, setBudget, branch, setBranch , description,setdescription,handledescriptionchange} = useContext(multiStepContext);
+    const { userData, selectedCategory, setSelectedCategory, categoryType, setcategoryType, duedate, setdueDate, budget, setBudget, branch, setBranch , description,setdescription,handledescriptionchange
+        , supportdocument,setsupportdocument,handlechangesupportdocument
+    } = useContext(multiStepContext);
 
     const closePopup = () => {
         setsuccessPopup(false);
@@ -41,53 +43,56 @@ function MakeRequest() {
 
     const moveToDash = async () => {
         const token = localStorage.getItem('token');
+    
         if (page === FormTitles.length - 1) {
-                const token = localStorage.getItem('token');
-                if(token){
-                    try {
-                        const response = await fetch(`${API_BASE_URL}/users/ticket/`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Accept': '*/*',
-                                'Authorization': `Token ${token}`
-                            },
-                            credentials: 'include',
-                            body: JSON.stringify({
-                                Budget: budget,
-                                created_by: localStorage.getItem('profile_id'),
-                                description: description,
-                                estimated_completion: duedate,
-                                requested_branch: branch,
-                                ticket_category: selectedCategory,
-                                ticket_type: categoryType
-                            }),
-                        });
-        
-                        if (response.ok) {
-                            const data = await response.json();
-                            console.log('Data submitted successfully:', data);
-                            setsuccessPopup(true);
-                            console.log("Value of showpopup is :",successPopup)
-                        } else {
-                            console.error('Error submitting data:', response.statusText);
-                        }
-                    } catch (error) {
-                        console.error('Error submitting data:', error);
-                    }
-        
-                    navigate("/dashboard");
-                }
-                else{
+            if (token) {
+                try {
+                    // Create a FormData object to handle file uploads
+                    const formData = new FormData();
+                    formData.append('Budget', budget);
+                    formData.append('created_by', localStorage.getItem('profile_id'));
+                    formData.append('description', description);
+                    formData.append('estimated_completion', duedate);
+                    formData.append('requested_branch', branch);
+                    formData.append('ticket_category', selectedCategory);
+                    formData.append('ticket_type', categoryType);
                     
-                    alert('first you need to login or signup');
-                    navigate("/signup")
+                    // Append the file
+                    if (supportdocument) {
+                        formData.append('file_upload', supportdocument); // Ensure the file is appended
+                    }
+    
+                    const response = await fetch(`${API_BASE_URL}/users/ticket/`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Token ${token}`
+                        },
+                        credentials: 'include',
+                        body: formData // Send formData object
+                    });
+    
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log('Data submitted successfully:', data);
+                        setsuccessPopup(true);
+                        console.log("Value of showpopup is :", successPopup);
+                    } else {
+                        console.error('Error submitting data:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
                 }
+    
+                navigate("/dashboard");
+            } else {
+                alert('You need to login or sign up first.');
+                navigate("/signup");
+            }
         } else {
-
             setPage((currPage) => currPage + 1);
         }
     };
+    
 
     return (
         <>
