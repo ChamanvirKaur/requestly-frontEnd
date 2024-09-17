@@ -13,7 +13,7 @@ function Login() {
   });
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const { userData, setuserData } = useContext(multiStepContext);
+  const { userData, setuserData, authToken,setauthToken,handlechangeToken } = useContext(multiStepContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,6 +54,7 @@ function Login() {
         // Handle successful login
         localStorage.setItem('token', data.token); // Store the token in localStorage
         localStorage.setItem('email',formData.username)
+        setauthToken(true);
         setPopupMessage("Login Successful");
         setShowPopup(true);
         setFormData({

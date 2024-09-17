@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FirstForm from '../requestForm-pages/FirstForm';
 import SecondForm from '../requestForm-pages/SecondForm';
@@ -11,17 +11,16 @@ import API_BASE_URL from '../../apiConfig';
 
 function MakeRequest() {
     const popupMessage = "Request submitted successfully";
-    const [successPopup, setsuccessPopup] = useState(false);
+    const [reqdonePopup, setreqdonePopup] = useState(false);
     const navigate = useNavigate();
     const [page, setPage] = useState(0);
     const FormTitles = ["", "", "", "", ""];
     const [createdFor, setcreatedFor] = useState(localStorage.getItem('email'));
-    const { userData, selectedCategory, setSelectedCategory, categoryType, setcategoryType, duedate, setdueDate, budget, setBudget, branch, setBranch , description,setdescription,handledescriptionchange
-        , supportdocument,setsupportdocument,handlechangesupportdocument
-    } = useContext(multiStepContext);
+    const { selectedCategory, categoryType, duedate, budget, branch, description, supportdocument } = useContext(multiStepContext);
 
     const closePopup = () => {
-        setsuccessPopup(false);
+        setreqdonePopup(false);
+        navigate("/dashboard"); // Navigate to dashboard after closing the popup
     }
 
     const FormDisplay = () => {
@@ -43,7 +42,7 @@ function MakeRequest() {
 
     const moveToDash = async () => {
         const token = localStorage.getItem('token');
-    
+
         if (page === FormTitles.length - 1) {
             if (token) {
                 try {
@@ -59,31 +58,28 @@ function MakeRequest() {
                     
                     // Append the file
                     if (supportdocument) {
-                        formData.append('file_upload', supportdocument); // Ensure the file is appended
+                        formData.append('file_upload', supportdocument);
                     }
-    
+
                     const response = await fetch(`${API_BASE_URL}/users/ticket/`, {
                         method: 'POST',
                         headers: {
                             'Authorization': `Token ${token}`
                         },
                         credentials: 'include',
-                        body: formData // Send formData object
+                        body: formData
                     });
-    
+
                     if (response.ok) {
                         const data = await response.json();
                         console.log('Data submitted successfully:', data);
-                        setsuccessPopup(true);
-                        console.log("Value of showpopup is :", successPopup);
+                        setreqdonePopup(true); // Set popup visibility to true
                     } else {
                         console.error('Error submitting data:', response.statusText);
                     }
                 } catch (error) {
                     console.error('Error submitting data:', error);
                 }
-    
-                navigate("/dashboard");
             } else {
                 alert('You need to login or sign up first.');
                 navigate("/signup");
@@ -92,7 +88,13 @@ function MakeRequest() {
             setPage((currPage) => currPage + 1);
         }
     };
-    
+
+    // This will only log after the popup state changes
+    useEffect(() => {
+        if (reqdonePopup) {
+            console.log("Value of reqdonePopup is:", reqdonePopup);
+        }
+    }, [reqdonePopup]);
 
     return (
         <>
@@ -129,7 +131,7 @@ function MakeRequest() {
                 </div>
             </div>
 
-            {successPopup && (
+            {reqdonePopup && (
                 <div className="popup">
                     <div className="popup-content">
                         <h2>{popupMessage}</h2>

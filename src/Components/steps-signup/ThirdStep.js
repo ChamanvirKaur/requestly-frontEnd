@@ -6,7 +6,7 @@ import API_BASE_URL from '../../apiConfig';
 
 function ThirdStep() {
     const navigate = useNavigate();
-    const { setcurrentStep, userData, setuserData, handleChnage } = useContext(multiStepContext);
+    const { setcurrentStep, userData, setuserData, handleChnage,authToken,setauthToken} = useContext(multiStepContext);
     const [showPopup, setShowPopup] = useState(false);
 
     const closePopup = () => {
@@ -51,10 +51,12 @@ function ThirdStep() {
                 setShowPopup(true);
                  localStorage.setItem('email',userData.email)
                 localStorage.setItem('token',data.token)
+                
                 // Optionally, navigate to another page after showing the popup
                 setTimeout(() => {
                     navigate("/makeRequest");
-                }, 2000); // navigate after 2 seconds
+                    setauthToken(true);
+                }, 1000); // navigate after 2 seconds
             }
         } catch (error) {
             console.error('Error submitting data:', error);

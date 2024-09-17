@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
+import { multiStepContext } from '../../StepContext';
 import './Header.css';
 import API_BASE_URL from '../../apiConfig';
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const { userData, setuserData, authToken,setauthToken,handlechangeToken } = useContext(multiStepContext);
+  
   useEffect(() => {
     // Check if token is present in localStorage when the component mounts
     const token = localStorage.getItem('token');
     if (token) {
       setIsLoggedIn(true);
     }
-  }, []);
+  }, [authToken]);
 
   const handleLogout = async () => {
     const token = localStorage.getItem('token');
@@ -30,8 +32,9 @@ function Header() {
         if (response.ok) {
           // Logout successful, remove the token and redirect
           localStorage.removeItem('token');
+          setauthToken(false);
           setIsLoggedIn(false);
-          window.location.href = '/login'; // Redirect to the login page
+          window.location.href = '/'; // Redirect to the login page
           localStorage.removeItem('email')
         } else {
           // Handle the error, e.g., show an error message

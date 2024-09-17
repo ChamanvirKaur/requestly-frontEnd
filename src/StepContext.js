@@ -34,12 +34,13 @@ export const multiStepContext=React.createContext();
   const [supportdocument,setsupportdocument]=useState("")
 
   // Authentication states
-  const [authToken,setauthToken]=useState("")
+  const [authToken,setauthToken]=useState(false)
   
+
 
 
 // -------------------------------------------------- Methodes to set data --------------------------------------------------------//
-  
+
  
     // this methode is called when user changes input box of any field in signup page
     const handleChnage = (event) =>{
@@ -91,6 +92,11 @@ export const multiStepContext=React.createContext();
       setsupportdocument(file)
     }
 
+
+    // authtoke state change
+    const handlechangeToken = () =>{
+      setauthToken(true);
+    }
 // ------------------------------------------------------- Design part --------------------------------------------------------//
   return (
     <div>
@@ -106,7 +112,8 @@ export const multiStepContext=React.createContext();
         branchcity,setbranchCity,handlebranchcityChange,
         branchIdtosend,setbranchIdtosend,
         description,setdescription,handledescriptionchange,
-        supportdocument,setsupportdocument,handlechangesupportdocument
+        supportdocument,setsupportdocument,handlechangesupportdocument,
+        authToken,setauthToken,handlechangeToken
       }}>
         <App/>
       </multiStepContext.Provider>
