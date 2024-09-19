@@ -3,9 +3,11 @@ import { multiStepContext } from '../../StepContext';
 import './Header.css';
 import API_BASE_URL from '../../apiConfig';
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { userData, setuserData, authToken,setauthToken,handlechangeToken } = useContext(multiStepContext);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // state to check user is logged in or not
+  const { userData, setuserData, authToken,setauthToken,handlechangeToken } = useContext(multiStepContext); // context variable 
   
+  // this useEffect is to render header page every time token will generated
   useEffect(() => {
     // Check if token is present in localStorage when the component mounts
     const token = localStorage.getItem('token');
@@ -14,9 +16,9 @@ function Header() {
     }
   }, [authToken]);
 
+  //this function is called when user will clcik on logout button
   const handleLogout = async () => {
     const token = localStorage.getItem('token');
-    console.log("token is:",token)
     if (token) {
       try {
         // Send a POST request to the logout API

@@ -1,109 +1,99 @@
-import React,{  useContext } from 'react'
+import React, { useContext } from 'react';
 import { multiStepContext } from '../../StepContext';
 
 function SecondForm() {
-    const{selectedCategory,handleCategoryChange,categoryType,setcategoryType, handlecategorytypeChange,
-      description,setdescription,handledescriptionchange
-    } = useContext(multiStepContext);
+  const {
+    selectedCategory,
+    handleCategoryChange,
+    categoryType,
+    setcategoryType,
+    handlecategorytypeChange,
+    description,
+    setdescription,
+    handledescriptionchange
+  } = useContext(multiStepContext);
 
+  // Helper function to render radio buttons line by line
+  const renderRadioButtons = (options) => {
+    return options.map((option) => (
+      <div key={option} className="radio-line">
+        <label className="radio-label">
+          <input
+            type="radio"
+            value={option}
+            checked={categoryType === option}
+            onChange={handlecategorytypeChange}
+          />
+          {option}
+        </label>
+      </div>
+    ));
+  };
 
   return (
-    <div className='requestForm'>
-        <h2>Select a request Type</h2>
+    <div className="requestForm">
+      <h2>Select a request Type</h2>
 
-       
-        
-        {/* It will appear when category is general */}
-        {selectedCategory=='General' && <select 
-          className='requestFormInput' 
-          id="requestTypes" 
-          value={categoryType} 
-          onChange={handlecategorytypeChange}
-        >
-            <option value="General">General</option>
-        </select>}
+      {/* General category */}
+      {selectedCategory === 'General' &&
+        renderRadioButtons(['General'])}
 
-        {/* It will appear when category is Media Buy */}
-        
-        {selectedCategory=='Media Buy' && <select 
-          className='requestFormInput' 
-          id="requestTypes" 
-          value={categoryType} 
-          onChange={handlecategorytypeChange}
-         
-        >
-            <option value="Print AD">Print AD</option>
-            <option value="Radio AD">Radio AD</option>
-            <option value="Radio Remote Broadcast">Radio Remote Broadcast</option>
-            <option value="Social Media Ad">Social Media Ad</option>
-            <option value="OOH Ad">OOH Ad</option>
-            <option value="Other">Other</option>
-        </select>}
+      {/* Media Buy category */}
+      {selectedCategory === 'Media Buy' &&
+        renderRadioButtons([
+          'Print AD',
+          'Radio AD',
+          'Radio Remote Broadcast',
+          'Social Media Ad',
+          'OOH Ad',
+          'Other'
+        ])}
 
-        {/* It will appear when category is Content & Translation */}
-        
-        {selectedCategory=='Content & Translation' && <select 
-          className='requestFormInput' 
-          id="requestTypes" 
-          value={categoryType} 
-          onChange={handlecategorytypeChange}
-         
-        >
-            <option value="English">English</option>
-            <option value="French">French</option>
-            <option value="Simplified Chinese">Simplified Chinese</option>
-            <option value="Traditional Chinese">Traditional Chinese</option>
-            <option value="Other">Other</option>
-        </select>}
+      {/* Content & Translation category */}
+      {selectedCategory === 'Content & Translation' &&
+        renderRadioButtons([
+          'English',
+          'French',
+          'Simplified Chinese',
+          'Traditional Chinese',
+          'Other'
+        ])}
 
+      {/* Graphic Design category */}
+      {selectedCategory === 'Graphic Design' &&
+        renderRadioButtons(['Print Ad', 'Social Media Ad', 'Other'])}
 
-        {selectedCategory=='Graphic Design' && <select 
-          className='requestFormInput' 
-          id="requestTypes" 
-          value={categoryType} 
-          onChange={handlecategorytypeChange}
-        >
-            <option value="Print Ad">Print Ad</option>
-            <option value="Social Media Ad">Social Media Ad</option>
-            <option value="Other">Other</option>
-        </select>}
+      {/* Print & Production category */}
+      {selectedCategory === 'Print & Production' &&
+        renderRadioButtons([
+          'Poster',
+          'A-Frame',
+          'Brochure',
+          'Sales Sheet',
+          'Business Card',
+          'Other'
+        ])}
 
-        {/* It will appear when category is Print & Production */}
+      {/* Event Marketing category */}
+      {selectedCategory === 'Event Marketing' &&
+        renderRadioButtons([
+          'Event materials',
+          'Sponsorship request',
+          'Event team',
+          'Other'
+        ])}
 
-        {selectedCategory=='Print & Production' && <select 
-          className='requestFormInput' 
-          id="requestTypes" 
-          value={categoryType} 
-          onChange={handlecategorytypeChange}
-        >
-            <option value="Poster">Poster</option>
-            <option value="A-Frame">A-Frame</option>
-            <option value="Brochure">Brochure</option>
-            <option value="Sales Sheet">Sales Sheet</option>
-            <option value="Business Card">Business Card</option>
-            <option value="Other">Other</option>
-        </select>}
-
-        {/* It will appear when category is Event Marketing */}
-
-        {selectedCategory=='Event Marketing' && <select 
-          className='requestFormInput' 
-          id="requestTypes" 
-          value={categoryType} 
-          onChange={handlecategorytypeChange}
-        >
-            <option value="Poster">Event materials</option>
-            <option value="A-Frame">Sponsorship request</option>
-            <option value="Brochure">Event team</option>
-            <option value="Other">Other</option>
-        </select>}
-
-        <div>
-          <h2>Description</h2>
-          <textarea className='requestFormInput' type="text" onChange={handledescriptionchange} value={description}/>
-        </div>
+      <div>
+        <h2>Description</h2>
+        <textarea
+          className="requestFormInput"
+          type="text"
+          onChange={handledescriptionchange}
+          value={description}
+        />
+      </div>
     </div>
-  )
+  );
 }
 
-export default SecondForm
+export default SecondForm;

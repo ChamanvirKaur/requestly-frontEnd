@@ -50,8 +50,10 @@ export const multiStepContext=React.createContext();
     }
 
     // this methode will call when user selects the category in makerwquest page
-    const handleCategoryChange = (event) => {
-      setSelectedCategory(event.target.value);
+    const handleCategoryChange = (id) => {
+      // console.log(event.target)
+      setSelectedCategory(id);
+      console.log(id)
     };
 
     // this methode will call when user selects category type in makerequest pages forms

@@ -5,7 +5,7 @@
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     color: #ffffff;
-    max-width: 400px;
+    max-width: 70%;
     margin: 40px auto;
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -64,3 +64,64 @@
 .requestdate{
     margin-top: 20px;
 }
+
+/* firstform style */
+.allServices-view{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .allserviceview{
+    width: 100%;
+    border: 1px solid #888888;
+    border-radius: 500px;
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .allserviceview:hover{
+    background-color: #24700d;
+  }
+  .allservicesview-icon {
+    width: 10%;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .allservicesview-icon i{
+    padding: 20px;
+    font-size: 50px;
+    border-radius: 50%;
+  }
+  .allservicesview-name {
+    width: 50% ;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+  
+  }
+  
+  .allservicesview-name p{
+    font-weight: 400;
+    font-size: 32px;
+    color: #ffffff;
+  }
+  .allservicesview-content {
+    width: 80%;
+    background-color: #282828;
+    border-radius: 500px;
+    color: #ffffff;
+    padding: 20px;
+    border: 1px solid #888888;
+  }
+  
+  
+  .allservicesview-content .allserviceview-content-text{
+      border-radius: 500px;
+  }
+
+  /* second-form styling */
+  
+  .radio-line{
+    text-align: start;
+    margin: auto;
+  }
