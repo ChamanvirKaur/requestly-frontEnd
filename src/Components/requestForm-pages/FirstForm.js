@@ -54,7 +54,7 @@ function FirstForm() {
   return (
     <div className='requestForm'>
         <h2>Select Category of request </h2>
-        <select 
+        {/* <select 
           className='requestFormInput' 
           id="requestCategories" 
           value={selectedCategory} 
@@ -69,7 +69,7 @@ function FirstForm() {
             <option value="Event Marketing">Event Marketing</option>
             <option value="General">General</option>
 
-        </select>
+        </select> */}
         {selectedCategory=='Select' && <p style={{color:"red", marginTop:"10px"}}>Please select any Request Category</p>}
 
         <div className='allServices-view'>

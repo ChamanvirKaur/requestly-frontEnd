@@ -45,34 +45,7 @@ function Landing() {
         }
     ];
 
-    const allService =[
-      {
-        serviceName : "Media",
-        iconClass: "fa-solid fa-photo-film",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
-        backgroundColor: "#936BFE"
-      },
-      {
-        serviceName : "Creative",
-        iconClass: "fa-brands fa-creative-commons-share",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
-        backgroundColor : "#FEEA7B"
-      },
-      {
-        serviceName : "Print",
-        iconClass: "fa-solid fa-print",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto temporibus assumenda fugiat numquam sint est?",
-        backgroundColor : "#FE7D84"
-      },
-      {
-        serviceName : "Social Media",
-        iconClass: "fa-solid fa-photo-film",
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, laboriosam repellendus ex fugiat quos, consectetur numquam labore quidem similique temporibus fugit delectus architecto? Unde sapiente impedit molestiae debitis nostrum quia.",
-        backgroundColor : "#557FFF"
-      },
-
-
-    ];
+   
     const services2 = [
       {
           content: "Content, content, content. Need help finding the right words or image for social media account or campaigns? with access 1000s of free assets, click here for help!",
@@ -104,7 +77,9 @@ function Landing() {
                         {/* information about app */}
                         <div className="info-text">
                             <h1 className=''>Made for</h1>
-                            <h1>strategic marketers</h1>
+                          
+          <img src="./images/ArborLogo.png" style={{width:"500px", height:"100px", marginBottom:"10px"}} alt="" />
+
                             <p>Marketing requests sent directly to your marketing agency team</p>
                         </div>
                     </div>
@@ -144,18 +119,7 @@ function Landing() {
                             ))}
                         </div>
 
-                        <div className='allServices-view'>
-                        {allService.map((allService, index) => (
-                                <div key={index} className='allserviceview'>
-                                    <div className='allservicesview-icon'><i className={allService.iconClass} style={{backgroundColor : allService.backgroundColor}}></i></div>
-                                    <div className='allservicesview-name'><p>{allService.serviceName}</p></div>
-                                    <div className='allservicesview-content'>
-                                    <p>{allService.content}</p>
-
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                       
                     </div>
                 </div>
             </div>

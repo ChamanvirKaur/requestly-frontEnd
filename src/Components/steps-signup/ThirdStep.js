@@ -3,6 +3,7 @@ import './steps.css';
 import { useNavigate } from 'react-router-dom';
 import { multiStepContext } from '../../StepContext';
 import API_BASE_URL from '../../apiConfig';
+import emailjs from "emailjs-com";
 
 function ThirdStep() {
     const navigate = useNavigate();
@@ -19,6 +20,10 @@ function ThirdStep() {
     };
 
     const submitData = async () => {
+        const serviceId ='service_3cwi3nc';
+        const templateId = 'template_8c3886h';
+        const publicKey ='I40VOC8idqChDUdBi';
+
         try {
             const response = await fetch(`${API_BASE_URL}/users/signupandlogin/`, {
                 method: 'POST',
@@ -39,11 +44,11 @@ function ThirdStep() {
             });
 
             const data = await response.json();
-            console.log("Your signup token is : " , data.token)
-            console.log("Data at registration:",data)
-            console.log("Email",userData.email);
-            console.log("first_name",userData.first_name);
-            console.log("last_name",userData.last_name);
+            // console.log("Your signup token is : " , data.token)
+            // console.log("Data at registration:",data)
+            // console.log("Email",userData.email);
+            // console.log("first_name",userData.first_name);
+            // console.log("last_name",userData.last_name);
 
 
             // If successful, show popup and navigate
@@ -52,6 +57,34 @@ function ThirdStep() {
                  localStorage.setItem('email',userData.email)
                 localStorage.setItem('token',data.token)
                 
+
+                // send successfull registration email
+                // emailjs.send('service_3cwi3nc','template_8c3886h','I40VOC8idqChDUdBi')
+                // .then((response)=>{console.log('Emial sent successfully')})
+                // .catch((error)=>{
+                //     console.log('Error sending Email:',error);
+                // });
+
+                emailjs
+                .send(
+                  "service_rudyg37",         // Service ID from EmailJS
+                  "template_q5gju4d",        // Template ID from EmailJS
+                  {
+                         // Dynamic variables in your email template
+                    user_email: userData.email,
+                  },
+                  "I40VOC8idqChDUdBi"             // Your user ID from EmailJS
+                )
+                .then(
+                  (result) => {
+                    alert("Registration successful. A confirmation email has been sent.");
+                  },
+                  (error) => {
+                    console.log(error.text);
+                    alert("Failed to send email. Please try again.");
+                  }
+                );
+
                 // Optionally, navigate to another page after showing the popup
                 setTimeout(() => {
                     navigate("/makeRequest");
