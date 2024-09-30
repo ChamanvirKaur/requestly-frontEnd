@@ -1,12 +1,12 @@
 .footer {
     width: 90%;
     text-align: center;
-    padding: 25px;
+    padding: 10px;
     font-weight: 300;
     margin: auto;
     margin-top: 20px;
     color: white;
-    background-color: #00DF82;
+    background-color: #282828;
     border-radius: 16px 16px 0 0 ;
     display: flex;
     justify-content: space-between;
@@ -43,7 +43,7 @@
     font-size: 14px;
     line-height: 16.8px;
     align-items: center;
-    color: #080808;
+    color: #00DF82;
 }
 
 @media only screen and (max-width : 768px){

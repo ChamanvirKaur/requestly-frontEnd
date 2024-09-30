@@ -166,6 +166,37 @@ function Landing() {
                        
                     </div>
                 </div>
+
+                {/* other information */}
+                <div className='picinfo'>
+                    <h1>Requestly works on the 
+                    basis of lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+                    <div className='subpicinfo'>
+                        <div className='info'>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab ullam inventore molestias aliquid laborum. Fuga architecto, sed dolorum nobis id animi error qui eum dignissimos vitae voluptas a provident dolorem vel amet excepturi praesentium eos repudiandae recusandae officiis? Iste eligendi, nesciunt earum quam quae laudantium dolor. Suscipit eaque eligendi sit.</p>
+                        </div>
+                        <div className='pic'>
+                            <img src="https://cdn-adventures-live.azureedge.net/adventurescache/b/8/8/d/1/6/b88d16cad9ce184915506c11fc8c3327972ea29f.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div className='subpicinfo'>
+                        <div className='pic'>
+                            <img src="https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/20190215175938/Vancouver-British-Columbia-Canada.jpg" alt="" />
+                        </div>
+                        <div className='info'>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab ullam inventore molestias aliquid laborum. Fuga architecto, sed dolorum nobis id animi error qui eum dignissimos vitae voluptas a provident dolorem vel amet excepturi praesentium eos repudiandae recusandae officiis? Iste eligendi, nesciunt earum quam quae laudantium dolor. Suscipit eaque eligendi sit.</p>
+                        </div>
+                    </div>
+                    <div className='subpicinfo'>
+                        <div className='info'>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab ullam inventore molestias aliquid laborum. Fuga architecto, sed dolorum nobis id animi error qui eum dignissimos vitae voluptas a provident dolorem vel amet excepturi praesentium eos repudiandae recusandae officiis? Iste eligendi, nesciunt earum quam quae laudantium dolor. Suscipit eaque eligendi sit.</p>
+                        </div>
+                        <div className='pic'>
+                            <img src="https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2021/07/iStock-495798786-1-e1535108453823.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </>
     );

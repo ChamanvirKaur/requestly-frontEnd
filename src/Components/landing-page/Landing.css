@@ -190,6 +190,42 @@
 }
 
 
+/* other info */
+
+.picinfo{
+  width: 75%;
+  padding: 50px;
+  margin: auto;
+  margin-top: 50px;
+  color: #FFFFFF;
+}
+
+.picinfo h1{
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 96px;
+}
+.subpicinfo{
+  display: flex;
+  padding: 50px 0;
+}
+
+.pic{
+  width: 50%;
+  background-color: #FFFFFF;
+}
+
+.info{
+  width: 40%;
+  text-align: center;
+  margin: auto;
+}
+
+.pic img{
+  width: 100%;
+  height: auto;
+}
+
 
 @media only screen and (max-width: 768px) {
   .headerBox {
