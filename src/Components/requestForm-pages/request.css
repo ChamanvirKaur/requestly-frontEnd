@@ -9,6 +9,8 @@
     margin: 40px auto;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    height: 500px;
+    overflow: auto;
 }
 
 /* Heading Styling */
@@ -73,38 +75,25 @@
   .allserviceview{
     width: 100%;
     border: 1px solid #888888;
-    border-radius: 500px;
+    
     display: flex;
     margin-top: 20px;
   }
 
-  .allserviceview:hover{
-    background-color: #24700d;
-  }
   .allservicesview-icon {
-    width: 10%;
+    width: 17%;
     text-align: center;
     padding: 20px;
   }
   
   .allservicesview-icon i{
-    padding: 20px;
-    font-size: 50px;
+    padding: 15px;
+    font-size: 30px;
     border-radius: 50%;
+    border: 1px solid #ffffff;
   }
-  .allservicesview-name {
-    width: 50% ;
-    text-align: center;
-    margin: auto;
-    padding: 20px;
+
   
-  }
-  
-  .allservicesview-name p{
-    font-weight: 400;
-    font-size: 32px;
-    color: #ffffff;
-  }
   .allservicesview-content {
     width: 80%;
     background-color: #282828;
@@ -120,8 +109,25 @@
   }
 
   /* second-form styling */
-  
-  .radio-line{
-    text-align: start;
-    margin: auto;
+  .subservices{
+    margin-top: 20px;
+    border: 1px solid #ffffff;
+    padding: 30px 0;
   }
+  .radio-line{
+   
+    margin: auto;
+    gap: 20px;
+    display: inline;
+  }
+  .radio-line span{
+    margin: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #2e2e2e;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+
+  }
+  

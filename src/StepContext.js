@@ -58,7 +58,9 @@ export const multiStepContext=React.createContext();
 
     // this methode will call when user selects category type in makerequest pages forms
     const handlecategorytypeChange =(event)=>{
-      setcategoryType(event.target.value);
+      console.log(event);
+      
+      setcategoryType(event);
     }
 
     const handledescriptionchange =(event)=>{
