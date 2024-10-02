@@ -131,3 +131,58 @@
 
   }
   
+  .RequestDescription{
+    border: 1px solid #ffffff;
+
+    width: 100%;
+    padding: 30px;
+  }
+  
+ 
+
+  .datedivision{
+    display: flex;
+    border: 1px solid #ffffff;
+    padding: 30px;
+    margin-top: 20px;
+  }
+
+  .requestdate{
+    width: 48%;
+    margin: 10px ;
+    
+    
+  }
+
+
+  /* third form css */
+
+  .budgetBox{
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #ffffff;
+
+  }
+
+
+  /* fourthform css */
+
+  .addressInfo{
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #ffffff;
+  }
+  .provinceCity{
+    display: flex;
+    
+  }
+
+  .provinceCity .customDropdown{
+    width: 49%;
+    margin: 10px;
+    margin-top: 30px;
+  }
+
+  .customDropdown{
+    margin-top: 30px;
+  }
