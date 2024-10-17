@@ -24,7 +24,8 @@ function Landing() {
             animation: "fade-right",
             buttonBackground : "#936BFE",
             buttonBorder : "#936BFE",
-            subcategory : ['Print AD','Radio AD','Radio Remote Broadcast','Social Media AD','OOH AD','Other']
+            subcategory : ['Print AD','Radio AD','Radio Remote Broadcast','Social Media AD','OOH AD','Other'],
+            textColor:'#FFFFFF',
         },
         {
             content: "Our human (and AI enabled) creative team are standing by. Need somethin designed Click here!",
@@ -34,7 +35,9 @@ function Landing() {
             animation: "fade-left",
             buttonBackground : "#557FFF",
             buttonBorder:"#557FFF",
-            subcategory :['English','French','Simplified Chinese','Traditional Chinese']
+            subcategory :['English','French','Simplified Chinese','Traditional Chinese'],
+            textColor:'#FFFFFF',
+
         },
         
     ];
@@ -51,6 +54,8 @@ function Landing() {
           buttonBackground : "#FEF3B0",
           buttonBorder:"#FEF3B0",
           subcategory: ['Event Materials','Sponsorship Request','Event Team','Other'],
+          textColor:'black',
+
       },
       {
         content: "Content, content, content. Need help finding the right words or image for social media account or campaigns? with access 1000s of free assets, click here for help!",
@@ -61,6 +66,8 @@ function Landing() {
         buttonBackground : "#FE7D84",
         buttonBorder : "#FE7D84",
         subcategory: ['Poster','A-frame','Brochure','Sales Sheet','Business Card','Other'],
+        textColor:'#FFFFFF',
+
     }
     
   ];
@@ -69,11 +76,13 @@ function Landing() {
     {
         content: "If you have marketing mission beyond these short categories, tell us about it and we’ll jump in like marketing avengers!",
         iconClass: "fa-brands fa-creative-commons-share",
-        buttonText: "General Marketing",
+        buttonText: "And more",
         backgroundColor: "#00DF82", 
         animation: "fade-left",
         buttonBackground : "#57F3A8",
         buttonBorder:"#57F3A8",
+        textColor:'#000000',
+
     },
   ]
 
@@ -115,10 +124,10 @@ function Landing() {
                             {services.map((service, index) => (
                               <div className='maincard'>
                                     <div className='thecard'>
-                                         <div key={index} className='service-1' data-aos={service.animation} style={{ backgroundColor: service.backgroundColor }}>
+                                         <div key={index} className='service-1' data-aos={service.animation} style={{ backgroundColor: service.backgroundColor , color:service.textColor}}>
                                     <p>{service.content}</p>
                                     <div className='service-icon-1'>
-                                        <button style={{ color : "#ffffff" , backgroundColor : service.buttonBackground , border : service.buttonBorder}}>{service.buttonText}</button>
+                                        <button style={{ color : service.textColor , backgroundColor : service.buttonBackground , border : service.buttonBorder}}>{service.buttonText}</button>
                                         <i className={service.iconClass} style={{color : service.buttonBackground}}></i>
                                     </div>
                                         </div>
@@ -147,15 +156,15 @@ function Landing() {
                         {services2.map((services2, index) => (
                                 <div className='maincard'>
                                     <div className='thecard'>
-                                        <div key={index} className='service-2' data-aos={services2.animation} style={{ backgroundColor: services2.backgroundColor }}>
+                                        <div key={index} className='service-2' data-aos={services2.animation} style={{ backgroundColor: services2.backgroundColor , color:services2.textColor , width: index === 0 ? "80%" : "100%"}}>
                                         <p>{services2.content}</p>
                                         <div className='service-icon-2'>
-                                            <button style={{ color : "#ffffff" , backgroundColor : services2.buttonBackground , border : services2.buttonBorder}}>{services2.buttonText}</button>
+                                            <button style={{ color :services2.textColor , backgroundColor : services2.buttonBackground , border : services2.buttonBorder}}>{services2.buttonText}</button>
                                             <i className={services2.iconClass} style={{color : services2.buttonBackground}}></i>
                                         </div>
                                         </div>
 
-                                        <div className='service-2-back' style={{backgroundColor:services2.backgroundColor}}>
+                                        <div className='service-2-back' style={{backgroundColor:services2.backgroundColor }}>
                                         {services2.subcategory.map((item, idx) => (
                                         <span   style={{
                                           padding: "8px 16px",
@@ -173,7 +182,22 @@ function Landing() {
                                 </div>
                             ))}
                         </div>
-
+                        
+                        <div className='services-list-3'>
+                        {services3.map((service, index) => (
+                              <div >
+                                    <div >
+                                         <div key={index} className='service-3' data-aos={service.animation} style={{ backgroundColor: service.backgroundColor , color:service.textColor}}>
+                                    <p>{service.content}</p>
+                                    <div className='service-icon-3'>
+                                        <button style={{ color : service.textColor , backgroundColor : service.buttonBackground , border : service.buttonBorder, }}>{service.buttonText}</button>
+                                        <i className={service.iconClass} style={{color : service.buttonBackground}}></i>
+                                    </div>
+                                        </div>
+                                    </div>
+                              </div>
+                        ))}
+                        </div>
 
                     </div>
                 </div>
