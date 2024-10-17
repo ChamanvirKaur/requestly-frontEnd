@@ -161,6 +161,7 @@
     width: 100%;
     padding: 30px;
     border: 1px solid #ffffff;
+    margin-top: 20px;
 
   }
 
@@ -168,6 +169,7 @@
   /* fourthform css */
 
   .addressInfo{
+    margin-top: 20px;
     width: 100%;
     padding: 30px;
     border: 1px solid #ffffff;
