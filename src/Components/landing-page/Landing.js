@@ -254,7 +254,7 @@ function Landing() {
 
                 {/* other information */}
                 <div className='picinfo'>
-                    <h1>Simplify Requests, Amplify Business Impact. 
+                    <h1 style={{textAlign:'left'}}>Simplify Requests, Amplify Business Impact. 
                     Fast-Track with Requestly</h1>
 
                     <p>We understand how busy sales and marketing professionals can be. With so many tools and agency teams to coordinate with, sometimes you just want one place where you can see and send it all. That's where Requestly comes in.</p>
