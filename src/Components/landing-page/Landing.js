@@ -4,8 +4,9 @@ import React, { useEffect } from 'react';
 import 'animate.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { useNavigate } from 'react-router-dom';
 function Landing() {
+    const navigate = useNavigate();
     useEffect(() => {
         // Initialize Typed.js and AOS
         AOS.init({ duration: 1000 });
@@ -91,6 +92,10 @@ function Landing() {
     },
   ]
 
+
+  const nevigateNewReq =()=>{
+    navigate('/makeRequest')
+  }
   
 
     return (
@@ -161,9 +166,9 @@ function Landing() {
                 </div>
 
                 {/* all services */}
-                <div id="services">
+                <div id="services" >
                     <div className="container">
-                        <div className="services-list-1">
+                        <div className="services-list-1" onClick={()=>{nevigateNewReq()}}>
                             {services.map((service, index) => (
                               <div className='maincard'>
                                     <div className='thecard'>
@@ -196,7 +201,7 @@ function Landing() {
                             ))}
                         </div>
 
-                        <div className='services-list-2'>
+                        <div className='services-list-2' onClick={()=>{nevigateNewReq()}}>
                         {services2.map((services2, index) => (
                                 <div className='maincard'>
                                     <div className='thecard'>
@@ -227,7 +232,7 @@ function Landing() {
                             ))}
                         </div>
                         
-                        <div className='services-list-3'>
+                        <div className='services-list-3' onClick={()=>{nevigateNewReq()}}>
                         {services3.map((service, index) => (
                               <div >
                                     <div >
