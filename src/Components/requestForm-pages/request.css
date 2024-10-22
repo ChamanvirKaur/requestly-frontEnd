@@ -86,12 +86,19 @@
     padding: 20px;
   }
   
-  .allservicesview-icon i{
-    padding: 15px;
-    font-size: 30px;
-    border-radius: 50%;
-    border: 1px solid #ffffff;
-  }
+  .allservicesview-icon .icon {
+    padding: 5px;
+    font-size: 10px; /* Adjust font size for the icon/text */
+    width: 60px; /* Set equal width and height for a circle */
+    height: 60px;
+    border-radius: 50%; /* This ensures the shape is a circle */
+    border: 1px solid #ffffff; /* White border */
+    display: inline-flex; /* Align icon/text inside the circle */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #000000; /* Optional: Add background color */
+}
+
 
   
   .allservicesview-content {
