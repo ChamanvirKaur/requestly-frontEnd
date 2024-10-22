@@ -32,8 +32,9 @@
 .footer-button-2{
     border-radius: 100px;
     padding: 8px 24px;
-    background-color: #ffffff;
-    color: #080808;
+    background-color: #282828;
+    border:1px solid #00DF82;
+    color: #00DF82;
 }
 .footer-copyright{
     margin-right: 90px;
