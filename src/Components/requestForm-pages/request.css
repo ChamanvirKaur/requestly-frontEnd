@@ -9,7 +9,7 @@
     margin: 40px auto;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-   
+    font-family: 'Bricolage Grotesque', sans-serif;
     overflow: auto;
 }
 
@@ -67,14 +67,28 @@
     margin-top: 20px;
 }
 
+.submitRequest{
+  text-align: start;  
+}
+
+.submitRequest h1{
+  font-weight: 500;
+  font-size: 80px;
+}
+
+
 /* firstform style */
+.allserviceviewmain{
+  border: 1px solid #888888;
+  padding: 30px;
+
+}
 .allServices-view{
     margin-top: 50px;
     margin-bottom: 50px;
   }
   .allserviceview{
     width: 100%;
-    border: 1px solid #888888;
     
     display: flex;
     margin-top: 20px;
@@ -88,15 +102,15 @@
   
   .allservicesview-icon .icon {
     padding: 5px;
-    font-size: 10px; /* Adjust font size for the icon/text */
-    width: 60px; /* Set equal width and height for a circle */
+    font-size: 10px; 
+    width: 60px; 
     height: 60px;
-    border-radius: 50%; /* This ensures the shape is a circle */
-    border: 1px solid #ffffff; /* White border */
-    display: inline-flex; /* Align icon/text inside the circle */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    background-color: #000000; /* Optional: Add background color */
+    border-radius: 50%; 
+    border: 1px solid #ffffff; 
+    display: inline-flex; 
+    justify-content: center; 
+    align-items: center;
+    background-color: #000000; 
 }
 
 
@@ -118,8 +132,9 @@
   /* second-form styling */
   .subservices{
     margin-top: 20px;
-    border: 1px solid #ffffff;
-    padding: 30px 0;
+    border: 1px solid #888888;
+  padding: 30px;
+   
   }
   .radio-line{
    
@@ -139,17 +154,21 @@
   }
   
   .RequestDescription{
-    border: 1px solid #ffffff;
+    border: 1px solid #888888;
+    
 
     width: 100%;
     padding: 30px;
   }
   
- 
+ .datedivmain{
+  
+  border: 1px solid #888888;
+  padding: 20px;
+ }
 
   .datedivision{
     display: flex;
-    border: 1px solid #ffffff;
     padding: 30px;
     margin-top: 20px;
   }
@@ -167,7 +186,8 @@
   .budgetBox{
     width: 100%;
     padding: 30px;
-    border: 1px solid #ffffff;
+    border: 1px solid #888888;
+   
     margin-top: 20px;
 
   }
@@ -179,7 +199,8 @@
     margin-top: 20px;
     width: 100%;
     padding: 30px;
-    border: 1px solid #ffffff;
+    border: 1px solid #888888;
+    
   }
   .provinceCity{
     display: flex;

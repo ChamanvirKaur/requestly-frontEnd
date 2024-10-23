@@ -50,25 +50,32 @@ function ThirdForm() {
 
   return (
     <div className='requestForm'>
-          <div className='datedivision'> 
-        <div className='requestdate'>
-          <h2>Request Date</h2>
-          <input type="date" className='requestFormInput' value={today} readOnly />
+          <div className='submitRequest'>
+               <h1>Submit a Request</h1>
+            </div>
+         <div className='datedivmain'>
+          <h2>Request Timeline</h2>
+         <div className='datedivision'> 
+           
+           <div className='requestdate'>
+             <h2>Request Date</h2>
+             <input type="date" className='requestFormInput' value={today} readOnly />
+           </div>
+           <div className='requestdate'>
+             <h2>Due Date</h2>
+             <input 
+               type="date" 
+               className='requestFormInput' 
+               value={duedate} 
+               onChange={handleExpectedDateChange} 
+             />
+           </div>
         </div>
-        <div className='requestdate'>
-          <h2>Due Date</h2>
-          <input 
-            type="date" 
-            className='requestFormInput' 
-            value={duedate} 
-            onChange={handleExpectedDateChange} 
-          />
-        </div>
-      </div>
+         </div>
         
 
         <div className='budgetBox'>
-        <h2>Budget</h2>
+        <h2>Request Budget</h2>
       <select 
         className='requestFormInput' 
         value={budget}

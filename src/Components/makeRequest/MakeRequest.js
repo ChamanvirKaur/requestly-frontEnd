@@ -98,7 +98,8 @@ function MakeRequest() {
     return (
         <>
             <div className="form">
-                <h1>{localStorage.getItem('email')}</h1>
+                {/* <h1>{localStorage.getItem('email')}</h1> */}
+               
                 <div className="progressbar">
                     <div
                         style={{

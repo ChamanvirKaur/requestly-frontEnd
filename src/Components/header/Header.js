@@ -2,7 +2,10 @@ import React, { useState, useEffect,useContext } from 'react';
 import { multiStepContext } from '../../StepContext';
 import './Header.css';
 import API_BASE_URL from '../../apiConfig';
+import { useNavigate } from 'react-router-dom';
+
 function Header() {
+  const navigate = useNavigate();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false); // state to check user is logged in or not
   const { userData, setuserData, authToken,setauthToken,handlechangeToken } = useContext(multiStepContext); // context variable 
@@ -48,10 +51,14 @@ function Header() {
     }
   };
 
+  const nevigateLanding =()=>{
+    navigate('/')
+  }
+
   return (
     <div id="header">
       <nav>
-          <div className='header-logo'>
+          <div className='header-logo' onClick={()=>{nevigateLanding()}}>
               <img className='header-logo-image' src= "./images/Requestly logo.png" alt="" />
               <span>Requestly</span>
           </div>

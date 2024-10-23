@@ -28,7 +28,7 @@ function SecondForm() {
   } = useContext(multiStepContext);
 
   const fetchBranches = () => {
-    fetch(`${API_BASE_URL}/branch/`)
+    fetch(`${API_BASE_URL}/branch/branch`)
       .then(response => response.json())
       .then(data => {
         console.log('API Response:', data);
@@ -152,7 +152,9 @@ function SecondForm() {
 
   return (
     <div className="requestForm">
-  
+      <div className='submitRequest'>
+               <h1>Submit a Request</h1>
+            </div>
 
       <div className='RequestDescription'>
         <h2>Request Description</h2>
@@ -186,7 +188,7 @@ function SecondForm() {
         <h3>Request Target</h3>
       <div className='provinceCity'>
       <div className='customDropdown'>
-      <h4>Province where you want to request</h4>
+      <h4>Province</h4>
       <select 
         value={branchprovince}
         onChange={handleProvinceChange}
@@ -204,7 +206,7 @@ function SecondForm() {
     </div>
 
     <div className='customDropdown'>
-      <h4>Select City</h4>
+      <h4>City</h4>
       <select 
         value={branchcity}
         onChange={handleCityChange}
@@ -222,7 +224,7 @@ function SecondForm() {
       </div>
     
     <div className='customDropdown'>
-      <h4>Select a Branch</h4>
+      <h4>Branch</h4>
       <select
         value={branch}
         onChange={handleBranchChange}

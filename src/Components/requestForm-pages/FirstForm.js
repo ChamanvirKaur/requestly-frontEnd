@@ -113,8 +113,13 @@ function FirstForm() {
 
     return (
         <div className='requestForm'>
-            <h2>Select Category of request</h2>
+            <div className='submitRequest'>
+               <h1>Submit a Request</h1>
+            </div>
+            <div className='allserviceviewmain'>
+                <h2>Select a Category</h2>
             <div className='allserviceview'>
+                
                 {allService.map((service, index) => (
                     <div
                         key={index}
@@ -135,11 +140,12 @@ function FirstForm() {
                     </div>
                 ))}
             </div>
+            </div>
 
             {/* Conditionally render the subcategory section only if a category is selected */}
             {selectedCategory && selectedCategory !== 'Select' && (
                 <div className='subservices'>
-                    <h2>Select a Request Type</h2>
+                    <h2>Select a Sub-Category</h2>
                     {allService.map(service => {
                         if (service.id === selectedCategory) {
                             return (
