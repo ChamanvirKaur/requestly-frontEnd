@@ -10,7 +10,7 @@ import { multiStepContext } from '../../StepContext';
 import API_BASE_URL from '../../apiConfig';
 
 function MakeRequest() {
-    const popupMessage = "Request submitted successfully";
+    const popupMessage = "Congratulations! Your request has been successfully submitted.";
     const [reqdonePopup, setreqdonePopup] = useState(false);
     const navigate = useNavigate();
     const [page, setPage] = useState(0);
@@ -73,6 +73,7 @@ function MakeRequest() {
                         const data = await response.json();
                         console.log('Data submitted successfully:', data);
                         setreqdonePopup(true); // Set popup visibility to true
+                        navigate('/successReq')
                     } else {
                         console.error('Error submitting data:', response.statusText);
                     }
@@ -131,10 +132,13 @@ function MakeRequest() {
                 </div>
             </div>
 
-            {reqdonePopup && (
+            {reqdonePopup && 
+          (
                 <div className="popup">
                     <div className="popup-content">
-                        <h2>{popupMessage}</h2>
+                        <div>
+                        <h1>{popupMessage}</h1>
+                        </div>
                         <button className='close-button' onClick={closePopup}>Close</button>
                     </div>
                 </div>

@@ -1,0 +1,33 @@
+.success-main{
+    width: 80%;
+    margin: auto;
+    padding: 40px;
+   margin-top: auto;
+    background: #1e1e1e;
+    border-radius: 12px;
+}
+
+.success-heading{
+    width: 80%;
+}
+ 
+.success-heading h1{
+    text-align: start;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 76.8px;
+    color: #FFFFFF;
+}
+
+.success-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.success-Button{
+    width: 49%;
+    border: 1px solid;
+    border-radius: 16px;
+    color: #080808; 
+    padding: 30px;
+}
