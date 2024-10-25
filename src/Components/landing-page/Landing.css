@@ -228,7 +228,7 @@
 /* other info */
 
 .picinfo{
-  width: 75%;
+  width: 90%;
   padding: 50px;
   margin: auto;
   margin-top: 50px;
@@ -246,6 +246,18 @@
   font-weight: 400;
  font-size: 40px;
  
+}
+
+.svgImage{
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  height: '100vh';         
+  text-align: 'start';
+  background-color: '#f0f0f0'; 
+  padding: '20px';
+  border-radius: '8px';  
+  box-shadow: '0 4px 8px rgba(0, 0, 0, 0.2)';
 }
 
 

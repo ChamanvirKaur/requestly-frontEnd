@@ -254,12 +254,12 @@ function Landing() {
 
                 {/* other information */}
                 <div className='picinfo'>
-                    <h1 style={{textAlign:'left'}}>Simplify Requests, Amplify Business Impact. 
+                    <h1 style={{textAlign:'start'}}>Simplify Requests, Amplify Business Impact. 
                     Fast-Track with Requestly</h1>
 
                     <p>We understand how busy sales and marketing professionals can be. With so many tools and agency teams to coordinate with, sometimes you just want one place where you can see and send it all. That's where Requestly comes in.</p>
-                    <div>
-                        <svg width="1289" height="660" viewBox="0 0 1289 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className='svgImage' style={{textAlign:'start'}}>
+                        <svg width="100%" height="660" viewBox="0 0 1289 660" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_2919_610)">
     <rect width="1289" height="660" rx="8" fill="#E9EFFE"/>
     <path d="M1176.25 456.897C1154.47 472.009 1118.87 476.274 1078.53 469.305C1013.5 458.081 954.334 420.722 942.09 401.406C932.688 386.618 930.526 368.812 932.873 350.021C936.318 322.423 979.647 191.256 1064.63 171.348C1095.34 164.152 1135.92 168.742 1180.53 210.85C1208.8 237.372 1218.89 274.736 1219.92 313.311C1221.31 363.13 1204.84 437.081 1176.26 456.897H1176.25Z" fill="#DCD4F3"/>

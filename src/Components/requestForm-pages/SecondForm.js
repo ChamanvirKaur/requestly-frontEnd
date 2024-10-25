@@ -28,7 +28,7 @@ function SecondForm() {
   } = useContext(multiStepContext);
 
   const fetchBranches = () => {
-    fetch(`${API_BASE_URL}/branch/branch`)
+    fetch(`${API_BASE_URL}/branch`)
       .then(response => response.json())
       .then(data => {
         console.log('API Response:', data);
@@ -154,7 +154,7 @@ function SecondForm() {
     <div className="requestForm">
       <div className='submitRequest'>
                <h1>Submit a Request</h1>
-            </div>
+      </div>
 
       <div className='RequestDescription'>
         <h2>Request Description</h2>
