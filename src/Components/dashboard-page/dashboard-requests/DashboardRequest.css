@@ -30,7 +30,7 @@
 .dashboard-newRequest-search{
   display: flex;
   background-color:#080808 ;
-  width: 80%;
+  width: 75%;
   align-items: center;
   justify-content: space-around;
 }

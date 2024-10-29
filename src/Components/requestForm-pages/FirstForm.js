@@ -114,7 +114,7 @@ function FirstForm() {
     return (
         <div className='requestForm'>
             <div className='submitRequest'>
-               <h1>Submit a Request</h1>
+               <h1>Submit A Request</h1>
             </div>
             <div className='allserviceviewmain'>
                 <h2>Select a Category</h2>
