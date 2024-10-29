@@ -7,7 +7,7 @@ function SuccessReq() {
 
     const movetoDash=()=>
     {
-        navigate('/dashboard')
+        navigate('/dashboard/requests')
     }
 
     const movetoReq=()=>{

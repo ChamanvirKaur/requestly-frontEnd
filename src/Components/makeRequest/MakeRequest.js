@@ -20,7 +20,8 @@ function MakeRequest() {
 
     const closePopup = () => {
         setreqdonePopup(false);
-        navigate("/dashboard"); // Navigate to dashboard after closing the popup
+                                navigate('/successReq')
+ // Navigate to dashboard after closing the popup
     }
 
     const FormDisplay = () => {
@@ -73,7 +74,7 @@ function MakeRequest() {
                         const data = await response.json();
                         console.log('Data submitted successfully:', data);
                         setreqdonePopup(true); // Set popup visibility to true
-                        navigate('/successReq')
+                        // navigate('/successReq')
                     } else {
                         console.error('Error submitting data:', response.statusText);
                     }
