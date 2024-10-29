@@ -75,8 +75,8 @@ function Header() {
        <ul id="sidemenu">
           {isLoggedIn ? (
             <>
-              <li><a onClick={()=>{gotoReq()}}>My Requests</a></li>
-              <li><a onClick={()=>{gotoProfile()}}>My Profile</a></li>
+              <li id='myRequest'><a style={{color:'#080808'}}  onClick={()=>{gotoReq()}}>My Requests</a></li>
+              <li id='myProfile'><a style={{color:'#080808'}} id='myProfile' onClick={()=>{gotoProfile()}}>My Profile</a></li>
 
               <li><a onClick={handleLogout}>Logout</a></li>
 

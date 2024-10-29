@@ -3,8 +3,17 @@
   margin: auto;
   margin-top: 100px;
   background-color: #282828;
+  font-family: 'Bricolage Grotesque', sans-serif;
+
 }
 
+.requestPage h1{
+  font-weight: 500;
+  font-size: 80px;
+  color: #f1f1f1;
+  font-family: 'Bricolage Grotesque', sans-serif;
+
+}
 .dashboard-newRequest{
   display: flex;
   justify-content: space-around;
@@ -75,12 +84,7 @@
     font-family: Arial, sans-serif;
   }
   
-  .dashboard-request h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
+
   
   .request-table {
     width: 100%;

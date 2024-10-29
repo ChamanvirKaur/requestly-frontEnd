@@ -38,6 +38,7 @@ function DashboardRequest() {
   return (
         <div className='requestPage'>
            <div className='dashboard-request'>
+            <h1>My Requests</h1>
               <div className='dashboard-newRequest'>
                   <div className='dashboard-newRequest-button'>
                     <button onClick={()=>{gotoNewReq()}}>Submit a new request<svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">

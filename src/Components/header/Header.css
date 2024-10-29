@@ -11,6 +11,19 @@ nav{
     justify-content: space-between;
     
 }
+#myRequest{
+    background-color: #E9EFFE;
+    border: #E9EFFE;
+}
+#myProfile{
+    background-color: #00DF82;
+}
+
+
+
+#myRequest a{
+    color:#080808 ;
+}
 
 .header-logo{
     margin-left: 20px;
