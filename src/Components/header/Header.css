@@ -81,6 +81,9 @@ nav .fa-solid{
     color: white;
 }
 
+#sidemenu a{
+    color: #ffffff;
+}
 
 
 @media only screen and (max-width : 768px){

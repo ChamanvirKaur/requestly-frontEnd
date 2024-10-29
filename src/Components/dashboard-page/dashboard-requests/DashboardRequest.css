@@ -1,3 +1,49 @@
+.requestPage{
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  background-color: #282828;
+}
+
+.dashboard-newRequest{
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard-newRequest-button button{
+  background-color: #00DF82;
+  color: #282828;
+}
+
+.dashboard-newRequest-button svg{
+ margin-left: 10px;
+}
+.dashboard-newRequest-search{
+  display: flex;
+  background-color:#080808 ;
+  width: 80%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.dashboard-newRequest-search-icon{
+  width: 5%;
+
+  text-align: center;
+}
+.dashboard-newRequest-search-input{
+  width: 90%;
+  background-color: #00DF82;
+}
+
+
+.dashboard-newRequest-search-input input{
+  width: 100%;
+  background-color: #080808;
+  border: 0px;
+  color: #FFFFFF;
+  outline: #080808;
+}
 .request-tableContent{
     width: 100%;
     border-collapse: collapse;

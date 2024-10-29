@@ -44,6 +44,7 @@ function Header() {
         } else {
           // Handle the error, e.g., show an error message
           console.error('Logout failed');
+          
         }
       } catch (error) {
         console.error('Error during logout:', error);
@@ -55,6 +56,13 @@ function Header() {
     navigate('/')
   }
 
+  const gotoReq=()=>{
+    navigate('/dashboard/requests')
+  }
+
+  const gotoProfile=()=>{
+    navigate('dashboard/profile')
+    }
   return (
     <div id="header">
       <nav>
@@ -67,7 +75,11 @@ function Header() {
        <ul id="sidemenu">
           {isLoggedIn ? (
             <>
-              <li><button onClick={handleLogout}>Logout</button></li>
+              <li><a onClick={()=>{gotoReq()}}>My Requests</a></li>
+              <li><a onClick={()=>{gotoProfile()}}>My Profile</a></li>
+
+              <li><a onClick={handleLogout}>Logout</a></li>
+
             </>
           ) : (
             <>
