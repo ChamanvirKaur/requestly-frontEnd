@@ -75,7 +75,7 @@ function ThirdForm() {
         
 
         <div className='budgetBox'>
-        <h2>Request Budget</h2>
+        <h2>Estimated Budget</h2>
       <select 
         className='requestFormInput' 
         value={budget}
